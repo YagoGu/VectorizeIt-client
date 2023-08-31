@@ -4,21 +4,23 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 
 function SignupPage() {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [birthday, setBirthday] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
+  const handleUsername = (e) => setUsername(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-  const handleName = (e) => setName(e.target.value);
+  const handleBirthday = (e) => setBirthday(e.target.value);
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { email, password, name };
+    const requestBody = { username, email, password, birthday };
 
     // Send a request to the server using axios
     /* 
@@ -50,6 +52,10 @@ function SignupPage() {
       <h1>Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
+        
+        <label>Username:</label>
+        <input type="text" name="username" value={username} onChange={handleUsername} />
+        
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -61,8 +67,13 @@ function SignupPage() {
           onChange={handlePassword}
         />
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        <label>Birhtday</label>
+        <input 
+          type="date"
+          name="birthday"
+          value={birthday}
+          onChange={handleBirthday} 
+        />
 
         <button type="submit">Sign Up</button>
       </form>
