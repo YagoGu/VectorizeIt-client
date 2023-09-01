@@ -16,6 +16,7 @@ function GamePage () {
             return res.json()
         })
         .then((data) => {
+            console.log(data)
           return setVideogame(data)
         })
         .catch((err) => {
@@ -24,7 +25,13 @@ function GamePage () {
     
       }, [])
     
-      const {title, corporation, description, videogame_picture, pegi, contributed_by} = videogame
+      const {title, 
+        corporation, 
+        description, 
+        videogame_picture, 
+        pegi, 
+        contributed_by,
+        reviews} = videogame
 
     return (
         <div className="videogame">
@@ -37,6 +44,20 @@ function GamePage () {
                 <p>{corporation}</p>
                 <p>{description}</p>
                 <p>{contributed_by ? (contributed_by.username) : ("Uknown")}</p>
+            </div>
+            <div className="reviews">
+                {
+                reviews?.map((review) => {
+                    return (
+                    <div key={review._id} className="review">
+                        <p>{review.created_by.username}</p>
+                        <p>{review.description}</p>
+                        <p>{review.rate}</p>
+                        <p>{review.played_hours}</p>
+                    </div>
+                    )
+                })
+                }
             </div>
         </div>
     )
