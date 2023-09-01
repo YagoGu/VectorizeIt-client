@@ -14,7 +14,7 @@ function ProfilePage() {
   useEffect (() => {
     fetch(apiURL)
     .then((res) => {
-        return res.json()
+      return res.json()
     })
     .then((data) => {
       return setUser(data)
@@ -45,7 +45,7 @@ function ProfilePage() {
           {
             games_played?.map((games) => {
               return (
-              <div className="game-front">
+              <div className="game-front" key={games._id}>
                 <p>{games.title}</p>
                 <img src={games.videogame_picture} alt={`${games.title} front`} />
               </div>  

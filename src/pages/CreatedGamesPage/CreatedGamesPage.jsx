@@ -16,7 +16,6 @@ function CreatedGamesPage() {
             return res.json()
         })
         .then((data) => {
-          console.log(data)
           return setCreated(data)
         })
         .catch((err) => {
@@ -30,7 +29,7 @@ function CreatedGamesPage() {
         {
         created?.map((game) => {
             return (
-                <Link to={`/game/${game._id}`}>
+                <Link to={`/game/${game._id}`} key={game._id}>
                 <div className="created-name">
                     <p>{game.title}</p>
                     <img src={game.videogame_picture} alt={`${game.title} picture`} />

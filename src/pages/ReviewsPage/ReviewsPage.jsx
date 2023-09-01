@@ -15,7 +15,6 @@ function ReviewsPage () {
             return res.json()
         })
         .then((data) => {
-            console.log(data)
           return setReviews(data)
         })
         .catch((err) => {

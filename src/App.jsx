@@ -55,6 +55,7 @@ function App() {
           }
         />
 
+        {/* review routes */}
         <Route
           path="/review/:idGame/all"
           element={

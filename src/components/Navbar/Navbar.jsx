@@ -10,8 +10,6 @@ function Navbar() {
 
   const idUser = user?._id;
 
-  console.log(idUser)
-
   return (
     <nav>
       <Link to="/">
