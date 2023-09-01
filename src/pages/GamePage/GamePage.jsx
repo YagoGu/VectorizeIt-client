@@ -1,6 +1,7 @@
 import "./GamePage.css";
 import { useState, useEffect } from 'react';
 import { useParams} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function GamePage () {
 
@@ -16,7 +17,6 @@ function GamePage () {
             return res.json()
         })
         .then((data) => {
-            console.log(data)
           return setVideogame(data)
         })
         .catch((err) => {
@@ -46,8 +46,11 @@ function GamePage () {
                 <p>{contributed_by ? (contributed_by.username) : ("Uknown")}</p>
             </div>
             <div className="reviews">
+                <Link to={`/review/${idGame}/all`}>
+                    See all reviews    
+                </Link>
                 {
-                reviews?.map((review) => {
+                reviews?.slice(-2).map((review) => {
                     return (
                     <div key={review._id} className="review">
                         <p>{review.created_by.username}</p>
