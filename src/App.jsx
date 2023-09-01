@@ -6,12 +6,13 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
-import GamePage from "./pages/GamePage/GamePage";
-import PlayedGamesPage from "./pages/PlayedGamesPage/PlayedGamesPage";
-
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+
+import GamePage from "./pages/GamePage/GamePage";
+import PlayedGamesPage from "./pages/PlayedGamesPage/PlayedGamesPage";
+import CreatedGamesPage from "./pages/CreatedGamesPage/CreatedGamesPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
 
+        {/* user routes */}
         <Route
           path="/user/:idUser"
           element={
@@ -30,6 +32,14 @@ function App() {
           }
         />
 
+        <Route
+          path="/user/:idUser/created-games"
+          element={
+            <CreatedGamesPage />
+          }
+        />
+
+        {/* game routes */}
         <Route
           path="/game/:idGame"
           element={

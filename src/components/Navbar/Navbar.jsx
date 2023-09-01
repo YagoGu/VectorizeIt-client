@@ -23,8 +23,16 @@ function Navbar() {
           <button onClick={logOutUser}>Logout</button>
 
           <Link to={`/user/${idUser}`}>
-            <button>Profile</button>
+            <button>Your page</button>
             {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+          </Link>
+
+          <Link to={`/game/${idUser}/played-games`}>
+            <button>Games played</button>
+          </Link>
+
+          <Link to={`/user/${idUser}/created-games`}>
+            <button>Games created</button>
           </Link>
 
           <span>{user && user.name}</span>
