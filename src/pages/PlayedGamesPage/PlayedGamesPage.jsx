@@ -16,7 +16,6 @@ function PlayedGames () {
             return res.json()
         })
         .then((played) => {
-            console.log(played)
           return setPlayedGames(played)
         })
         .catch((err) => {
