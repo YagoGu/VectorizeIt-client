@@ -1,5 +1,6 @@
 import "./HomePage.css";
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 function HomePage() {
 
@@ -13,7 +14,6 @@ function HomePage() {
         return res.json()
     })
     .then((data) => {
-      console.log(data)
       return setVideogames(data)
     })
     .catch((err) => {
@@ -21,8 +21,6 @@ function HomePage() {
     })
 
   }, [apiURL])
-
-  console.log(videogames)
 
   return (
     <>
@@ -32,10 +30,12 @@ function HomePage() {
           
           videogames.map((properties) => {
             return (
-              <div className="container">
-                <p key={properties._id}>{properties.title}</p>
-                <img src={properties.videogame_picture} alt={`${properties.title} front page`} />
-              </div>
+              <Link to={`/game/${properties._id}`}>
+                <div className="container" key={properties._id}>
+                  <p>{properties.title}</p>
+                  <img src={properties.videogame_picture} alt={`${properties.title} front page`} />
+                </div>
+              </Link>
             )
           })
         }
