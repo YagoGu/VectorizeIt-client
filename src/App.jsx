@@ -5,7 +5,9 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+
 import GamePage from "./pages/GamePage/GamePage";
+import PlayedGamesPage from "./pages/PlayedGamesPage/PlayedGamesPage";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -20,7 +22,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         <Route
-          path="/profile"
+          path="/user/:idUser"
           element={
             <IsPrivate>
               <ProfilePage />
@@ -32,6 +34,13 @@ function App() {
           path="/game/:idGame"
           element={
               <GamePage />
+          }
+        />
+
+        <Route
+          path="/game/:idUser/played-games"
+          element={
+            <PlayedGamesPage />
           }
         />
 
