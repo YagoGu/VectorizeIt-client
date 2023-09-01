@@ -1,14 +1,15 @@
 import "./ProfilePage.css";
 import { useState, useEffect } from 'react';
-// import { useParams} from "react-router-dom";
+import { useParams} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ProfilePage() {
-  // const {userId} = useParams();
+
+  const {idUser} = useParams();
 
   const [user, setUser] = useState([])
 
-  // const apiURL= `http://localhost:5005/${userId}`
-  const apiURL = "http://localhost:5005/user/64f0acf144b5efd88f3a2a22"
+  const apiURL= `http://localhost:5005/user/${idUser}`
 
   useEffect (() => {
     fetch(apiURL)
@@ -16,7 +17,6 @@ function ProfilePage() {
         return res.json()
     })
     .then((data) => {
-      console.log(data)
       return setUser(data)
     })
     .catch((err) => {
@@ -26,6 +26,7 @@ function ProfilePage() {
   }, [])
 
   const {username, email, birthday, profile_picture, games_played} = user;
+  
   return (
     <>
       <h1>User page</h1>
@@ -36,6 +37,9 @@ function ProfilePage() {
             <p>EMAIL: {email}</p>
             <p>BIRTHDAY: {birthday}</p>
           </div>
+          <Link to={`/game/${idUser}/played-games`}>
+            See played games
+          </Link>
         </div>
         <div className="games-played">
           {

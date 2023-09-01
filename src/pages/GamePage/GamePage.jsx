@@ -16,7 +16,6 @@ function GamePage () {
             return res.json()
         })
         .then((data) => {
-            console.log(data)
           return setVideogame(data)
         })
         .catch((err) => {
