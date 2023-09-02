@@ -3,51 +3,70 @@ import { useState } from "react";
 
 function AddReview(props) {
 
-    const [description, setDescription] = useState("")
-    const [rate, setRate] = useState(5)
-    const [playedHours, setPlayedHours] = useState(1)
+    const apiURL = `http://localhost:5005/review/${props.idUser}/${props.idGame}/create`
 
-    const data= {
-        description,
-        rate,
-        played_hours : playedHours,
-        created_by: props.idUser,
-        related_to: props.idGame,
-    }
+    const [form, setForm] = useState ({
+        description: "",
+        rate: 5,
+        playedHours: 1
+    })
 
-    function resetInputs(){
-        setDescription("")
-        setRate(5)
-        setPlayedHours(1)
+    const handleInputChange = (e) => {
+
+        e.preventDefault();
+
+        const { name, value } = e.target;
+        setForm((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+
     }
 
     const handleSubmit = (e) => {
-        
         e.preventDefault();
-        console.log(data);
-        resetInputs();
+        console.log(form.description, form.rate, form.playedHours)
+        
+        fetch(apiURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(form)
+        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                console.log("Review: ", data);
+                setForm({
+                    description: "",
+                    rate: 5,
+                    playedHours: 1
+                })
+
+            })
+
+        props.setReviewed(true);
     }
 
     return (
-        <form action="" method="">
+        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)}>
             <h3>Create a review</h3>
 
             <label>Description</label>
             <input 
             type="textarea"
             name="description"
-            onChange={(event) => setDescription(event.target.value)}
-            value={description}
+            value={form.description}
             />
 
             <label>Rate</label>
-            <select name="rate" value={rate} onChange={(event) => setRate(event.target.value)}>
+            <select name="rate" value={form.rate}>
                 <option>10</option>
                 <option>9</option>
                 <option>8</option>
                 <option>7</option>
                 <option>6</option>
-                <option selected>5</option>
+                <option defaultValue={5}>5</option>
                 <option>4</option>
                 <option>3</option>
                 <option>2</option>
@@ -58,11 +77,10 @@ function AddReview(props) {
             <input 
             type="number"
             name="playedHours"
-            onChange={(event) => setPlayedHours(event.target.value)}
-            value={playedHours}
+            value={form.playedHours}
             />
 
-            <button onClick={(e) => handleSubmit(e)} type="submit">Create the review</button>
+            <button type="submit">Create the review</button>
 
         </form>
     )

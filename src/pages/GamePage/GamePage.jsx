@@ -31,22 +31,6 @@ function GamePage() {
         return setShowAddReview(!showAddReview);
     };
 
-
-    useEffect(() => {
-        fetch(apiURL)
-            .then((res) => {
-                return res.json()
-            })
-            .then((data) => {
-                setReviewed(checkIfReviewed(data.reviews))
-                return setVideogame(data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-
-    }, [idUser])
-
     const { title,
         corporation,
         description,
@@ -55,6 +39,21 @@ function GamePage() {
         contributed_by,
         reviews } = videogame
 
+    useEffect(() => {
+        fetch(apiURL)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                setReviewed(checkIfReviewed(data.reviews))
+                console.log(data)
+                return setVideogame(data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+    }, [idUser])
 
     return (
         <div className="videogame">
@@ -71,7 +70,7 @@ function GamePage() {
                     {isLoggedIn && !reviewed && (
                         <>
                         <button onClick={showComponent}>Add a review</button>
-                        {showAddReview && (<AddReview idUser={idUser} idGame={idGame}/>)}
+                        {showAddReview && (<AddReview idUser={idUser} idGame={idGame} setReviewed={setReviewed}/>)}
                         </>
                     )}
                 </>
