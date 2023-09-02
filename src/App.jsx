@@ -13,6 +13,7 @@ import IsAnon from "./components/IsAnon/IsAnon";
 import GamePage from "./pages/GamePage/GamePage";
 import PlayedGamesPage from "./pages/PlayedGamesPage/PlayedGamesPage";
 import CreatedGamesPage from "./pages/CreatedGamesPage/CreatedGamesPage";
+import ReviewsPage from "./pages/ReviewsPage/ReviewsPage";
 
 function App() {
   return (
@@ -51,6 +52,14 @@ function App() {
           path="/game/:idUser/played-games"
           element={
             <PlayedGamesPage />
+          }
+        />
+
+        {/* review routes */}
+        <Route
+          path="/review/:idGame/all"
+          element={
+            <ReviewsPage />
           }
         />
 

@@ -28,7 +28,7 @@ function PlayedGames () {
         {
             playedGames?.map((game) => {
                 return(
-                    <Link to={`/game/${game._id}`}>
+                    <Link to={`/game/${game._id}`} key={game._id}>
                         <div className="gameItem">
                             <img src={game.videogame_picture} alt={`${game.title} front`} />
                             <p>{game.title}</p>

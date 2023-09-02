@@ -30,8 +30,8 @@ function HomePage() {
           
           videogames.map((properties) => {
             return (
-              <Link to={`/game/${properties._id}`}>
-                <div className="container" key={properties._id}>
+              <Link to={`/game/${properties._id}`} key={properties._id}>
+                <div className="container">
                   <p>{properties.title}</p>
                   <img src={properties.videogame_picture} alt={`${properties.title} front page`} />
                 </div>
