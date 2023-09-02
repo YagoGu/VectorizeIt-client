@@ -1,10 +1,32 @@
 import "./AddReview.css"
 import { useState } from "react";
 
-function AddReview() {
+function AddReview(props) {
+
     const [description, setDescription] = useState("")
-    const [rate, setRate] = useState(0)
-    const [playedHours, setPlayedHours] = useState(0)
+    const [rate, setRate] = useState(5)
+    const [playedHours, setPlayedHours] = useState(1)
+
+    const data= {
+        description,
+        rate,
+        played_hours : playedHours,
+        created_by: props.idUser,
+        related_to: props.idGame,
+    }
+
+    function resetInputs(){
+        setDescription("")
+        setRate(5)
+        setPlayedHours(1)
+    }
+
+    const handleSubmit = (e) => {
+        
+        e.preventDefault();
+        console.log(data);
+        resetInputs();
+    }
 
     return (
         <form action="" method="">
@@ -12,7 +34,7 @@ function AddReview() {
 
             <label>Description</label>
             <input 
-            type="text"
+            type="textarea"
             name="description"
             onChange={(event) => setDescription(event.target.value)}
             value={description}
@@ -25,7 +47,7 @@ function AddReview() {
                 <option>8</option>
                 <option>7</option>
                 <option>6</option>
-                <option>5</option>
+                <option selected>5</option>
                 <option>4</option>
                 <option>3</option>
                 <option>2</option>
@@ -39,6 +61,8 @@ function AddReview() {
             onChange={(event) => setPlayedHours(event.target.value)}
             value={playedHours}
             />
+
+            <button onClick={(e) => handleSubmit(e)} type="submit">Create the review</button>
 
         </form>
     )

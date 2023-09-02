@@ -4,12 +4,13 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import AddReview from "../../components/AddReview/AddReview";
 
 function GamePage() {
 
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
-    const userId = user?._id;
+    const idUser = user?._id;
 
     const { idGame } = useParams();
 
@@ -17,13 +18,18 @@ function GamePage() {
 
     const [videogame, setVideogame] = useState([])
     const [reviewed, setReviewed] = useState()
+    const [showAddReview, setShowAddReview] = useState(false)
 
     function checkIfReviewed(arr)  {
         const arrCreated = arr.map((review) => {
             return (review.created_by._id)
         })
-        return arrCreated.includes(userId)
+        return arrCreated.includes(idUser)
     }
+
+    const showComponent = () => {
+        return setShowAddReview(!showAddReview);
+    };
 
 
     useEffect(() => {
@@ -39,7 +45,7 @@ function GamePage() {
                 console.log(err)
             })
 
-    }, [userId])
+    }, [idUser])
 
     const { title,
         corporation,
@@ -63,7 +69,10 @@ function GamePage() {
                 <p>{contributed_by ? (contributed_by.username) : ("Uknown")}</p>
                 <>
                     {isLoggedIn && !reviewed && (
-                        <button>Add a review</button>
+                        <>
+                        <button onClick={showComponent}>Add a review</button>
+                        {showAddReview && (<AddReview idUser={idUser} idGame={idGame}/>)}
+                        </>
                     )}
                 </>
             </div>
