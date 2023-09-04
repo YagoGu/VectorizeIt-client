@@ -25,7 +25,6 @@ function AddReview(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(form.description, form.rate, form.playedHours)
         
         fetch(apiURL, {
             method: "POST",
