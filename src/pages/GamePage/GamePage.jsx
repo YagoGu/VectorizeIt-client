@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import AddReview from "../../components/AddReview/AddReview";
 import ModifyReview from "../../components/ModifyReview/ModifyReview";
+import DeleteReview from "../../components/DeleteReview/DeleteReview";
 
 function GamePage() {
 
@@ -29,11 +30,11 @@ function GamePage() {
         return arrCreated.includes(idUser)
     }
 
-    const showComponent = () => {
+    const showComponentAddReview = () => {
         return setShowAddReview(!showAddReview);
     };
 
-    const showComponent2 = () => {
+    const showComponentModifyReview = () => {
         return setShowModifyReview(!showModifyReview)
     }
 
@@ -58,7 +59,7 @@ function GamePage() {
                 console.log(err)
             })
 
-    }, [idUser, showComponent, showComponent2])
+    }, [idUser, showComponentAddReview, showComponentModifyReview])
 
     return (
         <div className="videogame">
@@ -74,14 +75,15 @@ function GamePage() {
                 <>
                     {isLoggedIn && !reviewed && (
                         <>
-                        <button onClick={showComponent}>Add a review</button>
-                        {showAddReview && (<AddReview idUser={idUser} idGame={idGame} setReviewed={setReviewed}/>)}
+                        <button onClick={showComponentAddReview}>Add a review</button>
+                        {showAddReview && (<AddReview idUser={idUser} idGame={idGame} setReviewed={setReviewed} setShowAddReview={setShowAddReview}/>)}
                         </>
                     )}
                     {isLoggedIn && reviewed &&(
                         <>
-                        <button onClick={showComponent2}>Modify your review</button>
+                        <button onClick={showComponentModifyReview}>Modify your review</button>
                         {showModifyReview && (<ModifyReview idUser={idUser} idGame={idGame} setShowModifyReview={setShowModifyReview}/>)}
+                        <DeleteReview idUser={idUser} idGame={idGame}/>
                         </>
                     )}
                 </>

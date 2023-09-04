@@ -44,7 +44,7 @@ function AddReview(props) {
                 })
 
             })
-
+        props.setShowAddReview(false);
         props.setReviewed(true);
     }
 

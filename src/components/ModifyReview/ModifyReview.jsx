@@ -1,13 +1,12 @@
 import "./ModifyReview.css"
-import { useState,useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function ModifyReview(props) {
 
     //take your review data
     const apiURL = `http://localhost:5005/review/${props.idUser}/${props.idGame}`
 
-    const [yourreview, setYourReview] = useState()
+    const [yourReview, setYourReview] = useState()
     const [form, setForm] = useState ({})
 
     useEffect(() => {
@@ -45,7 +44,7 @@ function ModifyReview(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        const apiURL2 = `http://localhost:5005/review/${yourreview._id}/update`
+        const apiURL2 = `http://localhost:5005/review/${yourReview._id}/update`
 
         fetch(apiURL2, {
             method: "POST",
@@ -76,7 +75,7 @@ function ModifyReview(props) {
             name="description"
             value={form.description}
             />
-            {/* defaultValue={yourReview?.rate} selected={yourReview?.rate} */}
+
             <label>Rate</label>
             <select name="rate" value={form.rate}>
                 <option>10</option>
