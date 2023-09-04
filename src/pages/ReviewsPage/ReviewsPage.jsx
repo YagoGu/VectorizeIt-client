@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams} from "react-router-dom";
 
 function ReviewsPage () {
+
     const {idGame} = useParams();
 
     const apiURL = `http://localhost:5005/review/${idGame}/all`
@@ -34,6 +35,7 @@ function ReviewsPage () {
                         <p>{review.description}</p>
                         <p>{review.rate}</p>
                         <p>{review.played_hours}</p>
+                        {}
                     </div>
                     )
                 })

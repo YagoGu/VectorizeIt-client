@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import AddReview from "../../components/AddReview/AddReview";
+import ModifyReview from "../../components/ModifyReview/ModifyReview";
 
 function GamePage() {
 
@@ -19,6 +20,7 @@ function GamePage() {
     const [videogame, setVideogame] = useState([])
     const [reviewed, setReviewed] = useState()
     const [showAddReview, setShowAddReview] = useState(false)
+    const [showModifyReview, setShowModifyReview] = useState(false)
 
     function checkIfReviewed(arr)  {
         const arrCreated = arr.map((review) => {
@@ -30,6 +32,10 @@ function GamePage() {
     const showComponent = () => {
         return setShowAddReview(!showAddReview);
     };
+
+    const showComponent2 = () => {
+        return setShowModifyReview(!showModifyReview)
+    }
 
     const { title,
         corporation,
@@ -46,14 +52,13 @@ function GamePage() {
             })
             .then((data) => {
                 setReviewed(checkIfReviewed(data.reviews))
-                console.log(data)
                 return setVideogame(data)
             })
             .catch((err) => {
                 console.log(err)
             })
 
-    }, [idUser])
+    }, [idUser, showComponent, showComponent2])
 
     return (
         <div className="videogame">
@@ -73,6 +78,12 @@ function GamePage() {
                         {showAddReview && (<AddReview idUser={idUser} idGame={idGame} setReviewed={setReviewed}/>)}
                         </>
                     )}
+                    {isLoggedIn && reviewed &&(
+                        <>
+                        <button onClick={showComponent2}>Modify your review</button>
+                        {showModifyReview && (<ModifyReview idUser={idUser} idGame={idGame} setShowModifyReview={setShowModifyReview}/>)}
+                        </>
+                    )}
                 </>
             </div>
             <div className="reviews">
@@ -81,6 +92,7 @@ function GamePage() {
                 </Link>
                 {
                     reviews?.slice(-2).map((review) => {
+
                         return (
                             <div key={review._id} className="review">
                                 <p>{review.created_by.username}</p>
