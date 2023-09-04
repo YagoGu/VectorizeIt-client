@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/auth.context";
 import AddReview from "../../components/AddReview/AddReview";
 import ModifyReview from "../../components/ModifyReview/ModifyReview";
 import DeleteReview from "../../components/DeleteReview/DeleteReview";
+import AddPlayedGame from "../../components/AddPlayedGame/AddPlayedGame";
 
 function GamePage() {
 
@@ -22,6 +23,7 @@ function GamePage() {
     const [reviewed, setReviewed] = useState()
     const [showAddReview, setShowAddReview] = useState(false)
     const [showModifyReview, setShowModifyReview] = useState(false)
+    const [played, setPlayed] = useState(false)
 
     function checkIfReviewed(arr)  {
         const arrCreated = arr.map((review) => {
@@ -61,6 +63,27 @@ function GamePage() {
 
     }, [idUser, showComponentAddReview, showComponentModifyReview])
 
+    const apiURL2 = `http://localhost:5005/game/${idUser}/games-played`
+
+    useEffect(() => {
+        if (idUser != undefined) {
+        fetch(apiURL2)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                const playedGames = data.games_played.map((games) => {return(games._id)})
+                setPlayed(playedGames.includes(idGame))
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }
+        else{
+            console.log("loading")
+        }
+    }, [apiURL2])
+
     return (
         <div className="videogame">
             <div className="game">
@@ -73,6 +96,9 @@ function GamePage() {
                 <p>{description}</p>
                 <p>{contributed_by ? (contributed_by.username) : ("Uknown")}</p>
                 <>
+                    {isLoggedIn && !played && (
+                        <AddPlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
+                    )}
                     {isLoggedIn && !reviewed && (
                         <>
                         <button onClick={showComponentAddReview}>Add a review</button>

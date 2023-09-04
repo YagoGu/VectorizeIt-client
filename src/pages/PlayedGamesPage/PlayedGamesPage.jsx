@@ -8,7 +8,7 @@ function PlayedGames () {
 
     const [playedGames, setPlayedGames] = useState([])
 
-    const apiURL = `http://localhost:5005/game/${idUser}/played-games`
+    const apiURL = `http://localhost:5005/game/${idUser}/games-played`
 
     useEffect (() => {
         fetch(apiURL)
@@ -16,7 +16,7 @@ function PlayedGames () {
             return res.json()
         })
         .then((played) => {
-          return setPlayedGames(played)
+          return setPlayedGames(played.games_played)
         })
         .catch((err) => {
           console.log(err)
@@ -25,7 +25,7 @@ function PlayedGames () {
 
     return (
         <>
-        {
+        {   
             playedGames?.map((game) => {
                 return(
                     <Link to={`/game/${game._id}`} key={game._id}>
