@@ -1,12 +1,12 @@
-import "./AddPlayedGame.css"
+import "./RemovePlayedGame"
 
-function AddPlayedGame(props) {
+function RemovePlayedGame(props) {
 
-    const apiURL = `http://localhost:5005/game/${props.idUser}/${props.idGame}/add`;
+    const apiURL = `http://localhost:5005/game/${props.idUser}/${props.idGame}/remove`
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        
         fetch(apiURL, {
             method: "POST",
             headers: { "Content-Type": "application/json" }
@@ -20,15 +20,16 @@ function AddPlayedGame(props) {
             .catch((err) => {
                 console.log(err)
             })
+        
+        props.setPlayed(false);
 
-        props.setPlayed(true);
     }
 
     return (
         <form onSubmit={(e) => handleSubmit(e)}>
-            <button type="submit">Add game as played</button>
+            <button type="submit">Remove game from played</button>
         </form>
     )
 }
 
-export default AddPlayedGame;
+export default RemovePlayedGame;

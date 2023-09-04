@@ -8,6 +8,7 @@ import AddReview from "../../components/AddReview/AddReview";
 import ModifyReview from "../../components/ModifyReview/ModifyReview";
 import DeleteReview from "../../components/DeleteReview/DeleteReview";
 import AddPlayedGame from "../../components/AddPlayedGame/AddPlayedGame";
+import RemovePlayedGame from "../../components/RemovePlayedGame/RemovePlayedGame";
 
 function GamePage() {
 
@@ -98,6 +99,9 @@ function GamePage() {
                 <>
                     {isLoggedIn && !played && (
                         <AddPlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
+                    )}
+                    {isLoggedIn && played && (
+                        <RemovePlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
                     )}
                     {isLoggedIn && !reviewed && (
                         <>
