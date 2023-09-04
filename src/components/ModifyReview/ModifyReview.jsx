@@ -93,7 +93,7 @@ function ModifyReview(props) {
             <label>Played hours</label>
             <input 
             type="number"
-            name="playedHours"
+            name="played_hours"
             value={form.played_hours}
             />
 
