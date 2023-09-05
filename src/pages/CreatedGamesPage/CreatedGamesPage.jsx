@@ -42,7 +42,7 @@ function CreatedGamesPage() {
           console.log(err)
         })
     
-      }, [showCreateGame, showModifyGame])
+      }, [showCreateGame, showModifyGame, created])
 
     return (
         <>
