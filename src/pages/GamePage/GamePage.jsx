@@ -62,7 +62,7 @@ function GamePage() {
                 console.log(err)
             })
 
-    }, [idUser, showAddReview, showModifyReview])
+    }, [idUser, reviewed, showModifyReview])
 
     const apiURL2 = `http://localhost:5005/game/${idUser}/games-played`
 
@@ -113,7 +113,7 @@ function GamePage() {
                         <>
                         <button onClick={showComponentModifyReview}>Modify your review</button>
                         {showModifyReview && (<ModifyReview idUser={idUser} idGame={idGame} setShowModifyReview={setShowModifyReview}/>)}
-                        <DeleteReview idUser={idUser} idGame={idGame}/>
+                        <DeleteReview idUser={idUser} idGame={idGame} setReviewed={setReviewed}/>
                         </>
                     )}
                 </>

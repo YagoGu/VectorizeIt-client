@@ -39,7 +39,7 @@ function DeleteReview(props) {
             .catch((err) => {
                 console.log(err)
             })
-
+            props.setReviewed(false);
     }
 
     return (
