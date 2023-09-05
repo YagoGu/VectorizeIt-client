@@ -2,6 +2,8 @@ import "./ReviewsPage.css"
 import { useState, useEffect } from 'react';
 import { useParams} from "react-router-dom";
 
+import SearchBar from "../../components/SearchBar/SearchBar";
+
 function ReviewsPage () {
 
     const {idGame} = useParams();
@@ -25,6 +27,8 @@ function ReviewsPage () {
       }, [])
 
     return (
+      <>
+        <h1>Reviews page</h1>
         <div className="reviews">
         {
                 reviews?.map((review) => {
@@ -42,6 +46,7 @@ function ReviewsPage () {
             
         }
         </div>
+      </>
     )
 }
 

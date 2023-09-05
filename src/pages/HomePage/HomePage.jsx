@@ -2,11 +2,14 @@ import "./HomePage.css";
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
+import SearchBar from "../../components/SearchBar/SearchBar";
+
 function HomePage() {
 
   const apiURL= "http://localhost:5005/"
 
   const [videogames, setVideogames] = useState([])
+  const [updateVideogames, setupdatedVideogames] = useState([]);
 
   useEffect (() => {
     fetch(apiURL)
@@ -14,6 +17,7 @@ function HomePage() {
         return res.json()
     })
     .then((data) => {
+      setupdatedVideogames(data)
       return setVideogames(data)
     })
     .catch((err) => {
@@ -22,9 +26,18 @@ function HomePage() {
 
   }, [apiURL])
 
+  const searchFound = (gameName) => {
+    const searchGame = updateVideogames.filter((game) => {
+      return game.title.match(gameName)
+    })
+    setVideogames(searchGame)
+  }
+
   return (
     <>
       <h1>Home page</h1>
+      <p>Search for games by their title</p>
+      <SearchBar searchFound={searchFound}/>
       <div className="container">
         {
           
