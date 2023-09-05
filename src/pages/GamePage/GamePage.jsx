@@ -62,7 +62,7 @@ function GamePage() {
                 console.log(err)
             })
 
-    }, [idUser, showComponentAddReview, showComponentModifyReview])
+    }, [idUser, showAddReview, showModifyReview])
 
     const apiURL2 = `http://localhost:5005/game/${idUser}/games-played`
 

@@ -47,6 +47,7 @@ function CreateGame(props) {
             })
         })
         props.setShowCreateGame(false)
+        props.fetchCreatedGames()
     }
 
     return (
