@@ -31,7 +31,7 @@ function CreatedGamesPage() {
         return setShowModifyGame(!showModifyGame);
     }
 
-    useEffect (() => {
+    const fetchCreatedGames = () => {
         fetch(apiURL)
         .then((res) => {
             return res.json()
@@ -42,15 +42,18 @@ function CreatedGamesPage() {
         .catch((err) => {
           console.log(err)
         })
+    }
     
-      }, [showCreateGame, showModifyGame, created])
+    useEffect (() => {
+        fetchCreatedGames()
+    }, [showCreateGame, showModifyGame])
 
     return (
         <>
             {isLoggedIn && (
                 <>
                     <button onClick={showComponentCreateGame}>Add a game to the database</button>
-                    {showCreateGame && (<CreateGame idUser={idUser}  setShowCreateGame={setShowCreateGame}/>)}
+                    {showCreateGame && (<CreateGame idUser={idUser} setShowCreateGame={setShowCreateGame} fetchCreatedGames={fetchCreatedGames}/>)}
                 </>
             )}
             <div className="created-games">

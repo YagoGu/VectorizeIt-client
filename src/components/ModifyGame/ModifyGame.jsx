@@ -1,5 +1,6 @@
 import "./ModifyGame.css"
 import { useState, useEffect } from "react";
+import uploadImage from "../../services/file.upload.service";
 
 function ModifyGame(props) {
     
@@ -7,6 +8,7 @@ function ModifyGame(props) {
 
     const [yourGame, setYourGame] = useState()
     const [form, setForm] = useState ({})
+    const [detectImg, setDetectImg] = useState(false)
 
     useEffect(() => {
         fetch(apiURL)
@@ -20,6 +22,7 @@ function ModifyGame(props) {
                     corporation: data.corporation,
                     description: data.description,
                     pegi: data.pegi,
+                    videogame_picture : data.videogame_picture
                 })
             })
             .catch((err) => {
@@ -27,6 +30,16 @@ function ModifyGame(props) {
             })
 
     }, [])
+
+    const handleFileUpload = (e) => {
+
+        uploadImage(e.target.files[0])
+          .then(response => {
+            setForm({...form, videogame_picture : response.image_url});
+            setDetectImg(true);
+          })
+          .catch(err => console.log("Error while uploading the file: ", err));
+      };
     
     const handleInputChange = (e) => {
 
@@ -55,18 +68,13 @@ function ModifyGame(props) {
                 return res.json()
             })
             .then((data) => {
-                return setForm({
-                    title: data.title,
-                    corporation: data.corporation,
-                    description: data.description,
-                    pegi: data.pegi,
-                })
+                return data
             })
             props.setShowModifyGame(false)
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} >
+        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} enctype="multipart/form-data">
             <h3>Create a game for the database</h3>
 
             <label>Title</label>
@@ -98,6 +106,15 @@ function ModifyGame(props) {
                 <option value="pegi16">PEGI 16</option>
                 <option value="pegi18">PEGI 18</option>
             </select>
+
+            <input 
+            type="file"
+            name="videogame_picture"
+            onChange={(e) => handleFileUpload(e)}
+            />
+
+            {detectImg &&
+            (<img src={form.videogame_picture} alt="your image" />)}
 
             <button type="submit">Update your game</button>
 

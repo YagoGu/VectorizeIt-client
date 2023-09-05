@@ -2,12 +2,22 @@ import "./ProfilePage.css";
 import { useState, useEffect } from 'react';
 import { useParams} from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth.context";
+import UpdateProfile from "../../components/UpdateProfile/UpdateProfile";
 
 function ProfilePage() {
 
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
   const {idUser} = useParams();
 
-  const [user, setUser] = useState([])
+  const [userprofile, setUserprofile] = useState([])
+  const [showUpdateUser, setShowUpdateUser] = useState(false)
+
+  const showComponentUpdateUser = () => {
+    return setShowUpdateUser(!showUpdateUser)
+}
 
   const apiURL= `http://localhost:5005/user/${idUser}`
 
@@ -17,15 +27,15 @@ function ProfilePage() {
       return res.json()
     })
     .then((data) => {
-      return setUser(data)
+      return setUserprofile(data)
     })
     .catch((err) => {
       console.log(err)
     })
 
-  }, [])
+  }, [showUpdateUser])
 
-  const {username, email, birthday, profile_picture, games_played} = user;
+  const {username, email, birthday, profile_picture, games_played} = userprofile;
   
   return (
     <>
@@ -37,6 +47,12 @@ function ProfilePage() {
             <p>EMAIL: {email}</p>
             <p>BIRTHDAY: {birthday}</p>
           </div>
+          {isLoggedIn && 
+          <>
+          <button onClick={showComponentUpdateUser}>Update your profile</button>
+          {showUpdateUser && <UpdateProfile idUser={idUser} setShowUpdateUser={setShowUpdateUser}/>}
+          </>
+          }
           <Link to={`/game/${idUser}/played-games`}>
             See played games
           </Link>
