@@ -1,5 +1,6 @@
 import "./UpdateProfile.css"
 import { useState, useEffect } from "react";
+import uploadImage from "../../services/file.upload.service";
 
 function UpdateProfile(props){
 
@@ -7,6 +8,7 @@ function UpdateProfile(props){
 
     const [userData, setUserData] = useState()
     const [form, setForm] = useState ({})
+    const [detectImg, setDetectImg] = useState(false)
 
     useEffect(() => {
         fetch(apiURL)
@@ -19,7 +21,8 @@ function UpdateProfile(props){
                     username: data.username,
                     email: data.email, 
                     birthday: data.birthday.split("T")[0],
-                    password: ""
+                    password: "",
+                    profile_picture: data.profile_picture
                 })
             })
             .catch((err) => {
@@ -27,6 +30,16 @@ function UpdateProfile(props){
             })
 
     }, [])
+
+    const handleFileUpload = (e) => {
+
+        uploadImage(e.target.files[0])
+          .then(response => {
+            setForm({...form, profile_picture : response.image_url});
+            setDetectImg(true);
+          })
+          .catch(err => console.log("Error while uploading the file: ", err));
+      };
 
     const handleInputChange = (e) => {
 
@@ -55,18 +68,19 @@ function UpdateProfile(props){
             })
             .then((data) => {
                 console.log("User: ", data);
-                setForm({
+              /*   setForm({
                     username: data.username,
                     email: data.email, 
                     birthday: data.birthday.split("T")[0],
-                    password: ""
-                })
+                    password: "",
+                    profile_picture: data.profile_picture
+                }) */
                 props.setShowUpdateUser(false)
             })
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)}>
+        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} enctype="multipart/form-data">
             <h3>Modify your review</h3>
 
             <label>Username</label>
@@ -96,6 +110,15 @@ function UpdateProfile(props){
             name="password"
             value={form.password}
             />
+
+            <input 
+            type="file"
+            name="profile_picture"
+            onChange={(e) => handleFileUpload(e)}
+            />
+
+            {detectImg &&
+            (<img src={form.profile_picture} alt="your image" />)}
 
             <button type="submit">Update your profile</button>
 
