@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/auth.context";
 
 import CreateGame from "../../components/CreateGame/CreateGame";
 import ModifyGame from "../../components/ModifyGame/ModifyGame";
+import DeleteGame from "../../components/DeleteGame/DeleteGame";
 
 function CreatedGamesPage() {
 
@@ -66,6 +67,7 @@ function CreatedGamesPage() {
                             <button onClick={() => showComponentModifyGame(game._id)}>Modify</button>
                             {showModifyGame && gameSelected === game._id &&
                             (<ModifyGame idUser={idUser} idGame={game._id} setShowModifyGame={setShowModifyGame}/>)}
+                            <DeleteGame idUser={idUser} idGame={game._id}/>
                             </>
                         )}
                     </div>
