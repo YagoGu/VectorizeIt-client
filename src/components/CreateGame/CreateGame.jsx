@@ -1,5 +1,6 @@
 import "./CreateGames.css"
 import { useState} from "react";
+import uploadImage from "../../services/file.upload.service";
 
 function CreateGame(props) {
 
@@ -10,8 +11,19 @@ function CreateGame(props) {
         corporation: "Uknown",
         description: "Unset",
         pegi: "pegi18",
-        // videogame_picture: "https://res.cloudinary.com/dpfyow85s/image/upload/v1693390929/VectorizeIt/videogame-default.png",
+        videogame_picture: "https://res.cloudinary.com/dpfyow85s/image/upload/v1693390929/VectorizeIt/videogame-default.png",
     })
+    const [detectImg, setDetectImg] = useState(false)
+
+    const handleFileUpload = (e) => {
+
+        uploadImage(e.target.files[0])
+          .then(response => {
+            setForm({...form, videogame_picture : response.image_url});
+            setDetectImg(true);
+          })
+          .catch(err => console.log("Error while uploading the file: ", err));
+    };
 
     const handleInputChange = (e) => {
 
@@ -38,21 +50,15 @@ function CreateGame(props) {
         })
         .then((data) => {
             console.log(" Videogame: ", data);
-            return setForm({
-                title: "",
-                corporation: "Uknown",
-                description: "Unset",
-                pegi: "pegi18",
-                // videogame_picture: "https://res.cloudinary.com/dpfyow85s/image/upload/v1693390929/VectorizeIt/videogame-default.png",
-            })
         })
+        
         props.setShowCreateGame(false)
         props.fetchCreatedGames()
     }
 
     return (
         // enctype="multipart/form-data"
-        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} >
+        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} enctype="multipart/form-data">
             <h3>Create a game for the database</h3>
 
             <label>Title</label>
@@ -88,12 +94,14 @@ function CreateGame(props) {
                 <option value="pegi18" select>PEGI 18</option>
             </select>
 
-            {/* <label>
-                <input
-                type="file"
-                name="videogame_picture"
-                />
-            </label> */}
+            <input 
+            type="file"
+            name="videogame_picture"
+            onChange={(e) => handleFileUpload(e)}
+            />
+
+            {detectImg &&
+            (<img src={form.videogame_picture} alt="your image" />)}
 
             <button type="submit">Add videogame</button>
 

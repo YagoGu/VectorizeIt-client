@@ -53,7 +53,7 @@ function CreatedGamesPage() {
             {isLoggedIn && (
                 <>
                     <button onClick={showComponentCreateGame}>Add a game to the database</button>
-                    {showCreateGame && (<CreateGame idUser={idUser}  setShowCreateGame={setShowCreateGame} fetchCreatedGames={fetchCreatedGames}/>)}
+                    {showCreateGame && (<CreateGame idUser={idUser} setShowCreateGame={setShowCreateGame} fetchCreatedGames={fetchCreatedGames}/>)}
                 </>
             )}
             <div className="created-games">
