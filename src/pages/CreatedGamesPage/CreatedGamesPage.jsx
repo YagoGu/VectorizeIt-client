@@ -17,6 +17,7 @@ function CreatedGamesPage() {
     const [created, setCreated] = useState([])
     const [showCreateGame, setShowCreateGame] = useState(false)
     const [showModifyGame, setShowModifyGame] = useState(false)
+    const [gameSelected, setGameSelected] = useState()
 
     const apiURL = `http://localhost:5005/user/${idUser}/created-games`
 
@@ -24,7 +25,8 @@ function CreatedGamesPage() {
         return setShowCreateGame(!showCreateGame);
     }
 
-    const showComponentModifyGame = () => {
+    const showComponentModifyGame = (idGame) => {
+        setGameSelected(idGame)
         return setShowModifyGame(!showModifyGame);
     }
 
@@ -61,8 +63,8 @@ function CreatedGamesPage() {
                         </Link>
                         {isLoggedIn && (
                             <>
-                            <button onClick={showComponentModifyGame}>Modify</button>
-                            {showModifyGame &&
+                            <button onClick={() => showComponentModifyGame(game._id)}>Modify</button>
+                            {showModifyGame && gameSelected === game._id &&
                             (<ModifyGame idUser={idUser} idGame={game._id} setShowModifyGame={setShowModifyGame}/>)}
                             </>
                         )}
