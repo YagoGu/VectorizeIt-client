@@ -36,7 +36,6 @@ function HomePage() {
   return (
     <>
       <h1>Home page</h1>
-      <p>Search for games by their title</p>
       <SearchBar searchFound={searchFound}/>
       <div className="container">
         {
@@ -44,7 +43,7 @@ function HomePage() {
           videogames.map((properties) => {
             return (
               <Link to={`/game/${properties._id}`} key={properties._id}>
-                <div className="container">
+                <div className="container-game">
                   <p>{properties.title}</p>
                   <img src={properties.videogame_picture} alt={`${properties.title} front page`} />
                 </div>

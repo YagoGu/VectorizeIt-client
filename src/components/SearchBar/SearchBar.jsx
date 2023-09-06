@@ -13,8 +13,14 @@ function SearchBar(props) {
     
     return (
             <form>
-                <label>Search</label>
-                <input name="search" value={found} type="text" onChange={searchForIt} />
+                <img src="https://res.cloudinary.com/dpfyow85s/image/upload/v1693999284/VectorizeIt/lupa.png" alt="lupa" />
+                <input
+                name="search"
+                value={found}
+                type="text" 
+                onChange={searchForIt} 
+                placeholder="Search by title..."
+                />
             </form>
         )
     }

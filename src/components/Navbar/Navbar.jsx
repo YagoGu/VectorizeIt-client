@@ -1,14 +1,15 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/auth.context";
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-
+  
   const idUser = user?._id;
+  
 
   return (
     <nav>
@@ -18,11 +19,8 @@ function Navbar() {
 
       {isLoggedIn && (
         <>
-          <button onClick={logOutUser}>Logout</button>
-
           <Link to={`/user/${idUser}`}>
             <button>Your page</button>
-            {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
           </Link>
 
           <Link to={`/game/${idUser}/played-games`}>
@@ -32,6 +30,8 @@ function Navbar() {
           <Link to={`/user/${idUser}/created-games`}>
             <button>Games created</button>
           </Link>
+
+          <button onClick={logOutUser}>Logout</button>
 
           <span>{user && user.name}</span>
         </>
