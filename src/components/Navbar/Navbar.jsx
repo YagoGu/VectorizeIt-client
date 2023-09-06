@@ -12,42 +12,42 @@ function Navbar() {
   
 
   return (
-    <nav>
-      <Link to="/">
+    <nav className="flex flex-row flex-nowrap justify-between">
+      <Link to="/" className="border-2 rounded-lg border-solid border-black py-1 px-2">
         <button>Home</button>
       </Link>
 
       {isLoggedIn && (
         <>
-          <Link to={`/user/${idUser}`}>
-            <button>Your page</button>
+          <Link to={`/user/${idUser}`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-4">
+            <button className="">Your page</button>
           </Link>
 
-          <Link to={`/game/${idUser}/played-games`}>
+          <Link to={`/game/${idUser}/played-games`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-4">
             <button>Games played</button>
           </Link>
 
-          <Link to={`/user/${idUser}/created-games`}>
+          <Link to={`/user/${idUser}/created-games`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-4">
             <button>Games created</button>
           </Link>
 
-          <button onClick={logOutUser}>Logout</button>
+          <button onClick={logOutUser} className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-4">Logout</button>
 
           <span>{user && user.name}</span>
         </>
       )}
 
       {!isLoggedIn && (
-        <>
-          <Link to="/signup">
+        <div className="flex flex-row justify-end">
+          <Link to="/signup" className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-4">
             {" "}
             <button>Sign Up</button>{" "}
           </Link>
-          <Link to="/login">
+          <Link to="/login" className="border-2 rounded-lg border-solid border-black py-1 px-2">
             {" "}
             <button>Login</button>{" "}
           </Link>
-        </>
+        </div>
       )}
     </nav>
   );

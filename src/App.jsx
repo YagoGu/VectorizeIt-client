@@ -17,7 +17,7 @@ import ReviewsPage from "./pages/ReviewsPage/ReviewsPage";
 
 function App() {
   return (
-    <div className="App">
+    <div className="m-8">
       <Navbar />
 
       <Routes>

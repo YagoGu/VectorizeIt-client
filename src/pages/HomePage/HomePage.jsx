@@ -35,16 +35,16 @@ function HomePage() {
 
   return (
     <>
-      <h1>Home page</h1>
+      <h1 className="text-center text-xl p-4 font-bold">Home page</h1>
       <SearchBar searchFound={searchFound}/>
-      <div className="container">
+      <div className="flex flex-wrap flex-row items-center">
         {
           
           videogames.map((properties) => {
             return (
-              <Link to={`/game/${properties._id}`} key={properties._id}>
-                <div className="container-game">
-                  <p>{properties.title}</p>
+              <Link to={`/game/${properties._id}`} key={properties._id} className="w-28 p-2 m-2">
+                <div>
+                  <p className="text-xs py-1">{properties.title}</p>
                   <img src={properties.videogame_picture} alt={`${properties.title} front page`} />
                 </div>
               </Link>
