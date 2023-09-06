@@ -25,6 +25,7 @@ function GamePage() {
     const [showAddReview, setShowAddReview] = useState(false)
     const [showModifyReview, setShowModifyReview] = useState(false)
     const [played, setPlayed] = useState(false)
+    const [avg, setAvg] = useState()
 
     function checkIfReviewed(arr)  {
         const arrCreated = arr.map((review) => {
@@ -56,6 +57,8 @@ function GamePage() {
             })
             .then((data) => {
                 setReviewed(checkIfReviewed(data.reviews))
+                const arr = data.reviews.map((rev)=>{return rev.rate})
+                setAvg(arr.reduce((a, b) => a + b) / arr.length)
                 return setVideogame(data)
             })
             .catch((err) => {
@@ -86,19 +89,22 @@ function GamePage() {
     }, [apiURL2])
 
     return (
-        <div className="videogame">
-            <div className="game">
+    <div className="my-4 p-2">
+        <div className="flex flex-row">
+            <div className="p-2">
                 <img src={videogame_picture} alt={`${title} picture`} />
-                <p>{pegi}</p>
+                {/* <p>{pegi}</p> */}
             </div>
-            <div className="info">
-                <p>{title}</p>
-                <p><span>Created by</span> {corporation}</p>
-                <p><span>About it</span> {description}</p>
-                <p><span>Added by</span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
-                <p><span>Avg rate</span></p>
+            <div className="text-sm w-38">
+                <p className="font-bold">{title}</p>
+                <p><span className="font-bold">Created by </span> {corporation}</p>
+                <p><span className="font-bold">About it </span> {description}</p>
+                <p><span className="font-bold">Added by </span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
+                <p><span className="font-bold">Avg rate </span>{avg}</p>
             </div>
-            <div className="options">
+        </div>
+        <div>
+            <div className="">
                 {isLoggedIn && !played && (
                     <AddPlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
                 )}
@@ -119,7 +125,7 @@ function GamePage() {
                     </>
                 )}
             </div>
-            <div className="reviews">
+            <div className="">
                 <Link to={`/review/${idGame}/all`}>
                     See all reviews
                 </Link>
@@ -138,6 +144,7 @@ function GamePage() {
                 }
             </div>
         </div>
+    </div>
     )
 }
 
