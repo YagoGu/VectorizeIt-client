@@ -93,9 +93,10 @@ function GamePage() {
             </div>
             <div className="info">
                 <p>{title}</p>
-                <p><span>Created by:</span> {corporation}</p>
-                <p><span>About it:</span> {description}</p>
-                <p><span>Added by:</span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
+                <p><span>Created by</span> {corporation}</p>
+                <p><span>About it</span> {description}</p>
+                <p><span>Added by</span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
+                <p><span>Avg rate</span></p>
             </div>
             <div className="options">
                 {isLoggedIn && !played && (
@@ -127,10 +128,10 @@ function GamePage() {
 
                         return (
                             <div key={review._id} className="review">
-                                <p>{review.created_by.username}</p>
-                                <p>{review.description}</p>
-                                <p>{review.rate}</p>
-                                <p>{review.played_hours}</p>
+                                <p><span>User</span>{review.created_by.username}</p>
+                                <p><span>Description</span>{review.description}</p>
+                                <p><span>Rate</span>{review.rate}/10</p>
+                                <p><span>Played hours</span>{review.played_hours}</p>
                             </div>
                         )
                     })

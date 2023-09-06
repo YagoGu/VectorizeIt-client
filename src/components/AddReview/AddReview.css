@@ -1,27 +1,29 @@
-.options form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    font-size: 4.5vw;
-}
+@media screen and (max-width: 450px) {
+    .options form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        font-size: 4.5vw;
+    }
 
-.form-group {
-    margin: 1vw;
-    width: 100%;
-}
+    .form-group {
+        margin: 1vw;
+        width: 100%;
+    }
 
-.form-group input {
-    width: 90%;
-}
+    .form-group input {
+        width: 90%;
+    }
 
-.form-group select {
-    width: 92.5%;
-}
+    .form-group select {
+        width: 92.5%;
+    }
 
-#submit-btn {
-    margin-top: 2vw;
-    height: 10vw;
-    width: 91%;
-    align-items: center;
+    #submit-btn {
+        margin-top: 2vw;
+        height: 10vw;
+        width: 91%;
+        align-items: center;
+    }
 }
