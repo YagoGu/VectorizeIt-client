@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:5005/auth";
+const baseUrl = "${process.env.REACT_APP_SERVER_URL}/auth";
 
 const errorHandler = (err) => {
   throw err;

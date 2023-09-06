@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 function DeleteReview(props) {
 
-    const apiURL = `http://localhost:5005/review/${props.idUser}/${props.idGame}`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/review/${props.idUser}/${props.idGame}`
 
     const [yourReview, setYourReview] = useState()
 
@@ -24,7 +24,7 @@ function DeleteReview(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const apiURL2 = `http://localhost:5005/review/${yourReview._id}/delete`
+        const apiURL2 = `${process.env.REACT_APP_SERVER_URL}/review/${yourReview._id}/delete`
 
         fetch(apiURL2, {
             method: "POST",

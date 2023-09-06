@@ -2,7 +2,7 @@ import "./RemovePlayedGame"
 
 function RemovePlayedGame(props) {
 
-    const apiURL = `http://localhost:5005/game/${props.idUser}/${props.idGame}/remove`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/game/${props.idUser}/${props.idGame}/remove`
 
     const handleSubmit = (e) => {
         e.preventDefault();

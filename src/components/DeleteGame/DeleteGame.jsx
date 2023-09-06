@@ -5,7 +5,7 @@ function DeleteGame(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const apiURL = `http://localhost:5005/user/${props.idUser}/${props.idGame}/delete`
+        const apiURL = `${process.env.REACT_APP_SERVER_URL}/user/${props.idUser}/${props.idGame}/delete`
 
         fetch(apiURL, {
             method: "POST",

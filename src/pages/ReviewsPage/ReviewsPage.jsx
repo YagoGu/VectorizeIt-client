@@ -8,7 +8,7 @@ function ReviewsPage () {
 
     const {idGame} = useParams();
 
-    const apiURL = `http://localhost:5005/review/${idGame}/all`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/review/${idGame}/all`
 
     const [reviews, setReviews] = useState([])
 

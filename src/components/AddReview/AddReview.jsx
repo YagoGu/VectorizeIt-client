@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function AddReview(props) {
 
-    const apiURL = `http://localhost:5005/review/${props.idUser}/${props.idGame}/create`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/review/${props.idUser}/${props.idGame}/create`
 
     const [form, setForm] = useState ({
         description: "",

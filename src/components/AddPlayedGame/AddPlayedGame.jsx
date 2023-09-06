@@ -2,7 +2,7 @@ import "./AddPlayedGame.css"
 
 function AddPlayedGame(props) {
 
-    const apiURL = `http://localhost:5005/game/${props.idUser}/${props.idGame}/add`;
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/game/${props.idUser}/${props.idGame}/add`;
 
     const handleSubmit = (e) => {
         e.preventDefault();

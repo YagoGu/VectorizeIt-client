@@ -19,7 +19,7 @@ function ProfilePage() {
     return setShowUpdateUser(!showUpdateUser)
 }
 
-  const apiURL= `http://localhost:5005/user/${idUser}`
+  const apiURL= `${process.env.REACT_APP_SERVER_URL}/user/${idUser}`
 
   useEffect (() => {
     fetch(apiURL)

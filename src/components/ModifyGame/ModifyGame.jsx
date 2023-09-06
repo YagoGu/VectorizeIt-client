@@ -4,7 +4,7 @@ import uploadImage from "../../services/file.upload.service";
 
 function ModifyGame(props) {
     
-    const apiURL = `http://localhost:5005/game/${props.idGame}/`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/game/${props.idGame}/`
 
     const [yourGame, setYourGame] = useState()
     const [form, setForm] = useState ({})
@@ -57,7 +57,7 @@ function ModifyGame(props) {
      const handleSubmit = (e) => {
         e.preventDefault();
         
-        const apiURL2 = `http://localhost:5005/user/${props.idUser}/${props.idGame}/update`
+        const apiURL2 = `${process.env.REACT_APP_SERVER_URL}/user/${props.idUser}/${props.idGame}/update`
 
         fetch(apiURL2, {
             method: "POST",

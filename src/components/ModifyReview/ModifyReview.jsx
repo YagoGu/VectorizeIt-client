@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function ModifyReview(props) {
 
     //take your review data
-    const apiURL = `http://localhost:5005/review/${props.idUser}/${props.idGame}`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/review/${props.idUser}/${props.idGame}`
 
     const [yourReview, setYourReview] = useState()
     const [form, setForm] = useState ({})
@@ -44,7 +44,7 @@ function ModifyReview(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        const apiURL2 = `http://localhost:5005/review/${yourReview._id}/update`
+        const apiURL2 = `${process.env.REACT_APP_SERVER_URL}/review/${yourReview._id}/update`
 
         fetch(apiURL2, {
             method: "POST",

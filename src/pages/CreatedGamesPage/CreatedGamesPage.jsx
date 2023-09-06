@@ -20,7 +20,7 @@ function CreatedGamesPage() {
     const [showModifyGame, setShowModifyGame] = useState(false)
     const [gameSelected, setGameSelected] = useState()
 
-    const apiURL = `http://localhost:5005/user/${idUser}/created-games`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/user/${idUser}/created-games`
 
     const showComponentCreateGame = () => {
         return setShowCreateGame(!showCreateGame);

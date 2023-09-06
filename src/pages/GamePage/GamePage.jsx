@@ -18,7 +18,7 @@ function GamePage() {
 
     const { idGame } = useParams();
 
-    const apiURL = `http://localhost:5005/game/${idGame}`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/game/${idGame}`
 
     const [videogame, setVideogame] = useState([])
     const [reviewed, setReviewed] = useState()
@@ -64,7 +64,7 @@ function GamePage() {
 
     }, [idUser, reviewed, showModifyReview])
 
-    const apiURL2 = `http://localhost:5005/game/${idUser}/games-played`
+    const apiURL2 = `${process.env.REACT_APP_SERVER_URL}/game/${idUser}/games-played`
 
     useEffect(() => {
         if (idUser != undefined) {

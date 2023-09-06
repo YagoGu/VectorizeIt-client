@@ -4,7 +4,7 @@ import uploadImage from "../../services/file.upload.service";
 
 function UpdateProfile(props){
 
-    const apiURL = `http://localhost:5005/user/${props.idUser}`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/user/${props.idUser}`
 
     const [userData, setUserData] = useState()
     const [form, setForm] = useState ({})
@@ -56,7 +56,7 @@ function UpdateProfile(props){
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        const apiURL2 = `http://localhost:5005/user/${props.idUser}/update`
+        const apiURL2 = `${process.env.REACT_APP_SERVER_URL}/user/${props.idUser}/update`
 
         fetch(apiURL2, {
             method: "POST",

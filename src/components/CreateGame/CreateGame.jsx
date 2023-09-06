@@ -4,7 +4,7 @@ import uploadImage from "../../services/file.upload.service";
 
 function CreateGame(props) {
 
-    const apiURL = `http://localhost:5005/user/${props.idUser}/create`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/user/${props.idUser}/create`
 
     const [form, setForm] = useState ({
         title: "",

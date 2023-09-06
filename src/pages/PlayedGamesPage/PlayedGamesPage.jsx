@@ -8,7 +8,7 @@ function PlayedGames () {
 
     const [playedGames, setPlayedGames] = useState([])
 
-    const apiURL = `http://localhost:5005/game/${idUser}/games-played`
+    const apiURL = `${process.env.REACT_APP_SERVER_URL}/game/${idUser}/games-played`
 
     useEffect (() => {
         fetch(apiURL)
