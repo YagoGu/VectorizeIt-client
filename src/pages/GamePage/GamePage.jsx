@@ -91,17 +91,17 @@ function GamePage() {
 
     return (
     <div className="my-4 p-2">
-        <div className="flex flex-row">
+        <div className="flex flex-row rounded-md border-black border-solid border-2">
             <div className="p-2">
-                <img src={videogame_picture} alt={`${title} picture`} />
+                <img className="w-22 h-32" src={videogame_picture} alt={`${title} picture`} />
                 {/* <p>{pegi}</p> */}
             </div>
-            <div className="text-sm w-38">
-                <p className="font-bold">{title}</p>
-                <p><span className="font-bold">Created by </span> {corporation}</p>
-                <p><span className="font-bold">About it </span> {description}</p>
-                <p><span className="font-bold">Added by </span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
-                <p><span className="font-bold">Avg rate </span>{avg} / 10</p>
+            <div className="flex flex-col justify-center text-xs py-1">
+                <p className="font-bold py-0.5 px-1">{title}</p>
+                <p className="py-0.5 px-1"><span className="font-bold">Created by </span> {corporation}</p>
+                <p className="py-0.5 px-1"><span className="font-bold">About it </span> {description}</p>
+                <p className="py-0.5 px-1"><span className="font-bold">Added by </span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
+                <p className="py-0.5 px-1"><span className="font-bold">Avg rate </span>{avg} / 10</p>
             </div>
         </div>
         <div>
@@ -127,18 +127,18 @@ function GamePage() {
                 )}
             </div>
             <div className="">
-                <Link to={`/review/${idGame}/all`}>
+                <Link to={`/review/${idGame}/all`} className="flex justify-center rounded-md border-black border-solid border-2 my-4">
                     See all reviews
                 </Link>
                 {
                     reviews?.slice(-2).map((review) => {
 
                         return (
-                            <div key={review._id} className="review">
-                                <p><span>User</span>{review.created_by.username}</p>
-                                <p><span>Description</span>{review.description}</p>
-                                <p><span>Rate</span>{review.rate}/10</p>
-                                <p><span>Played hours</span>{review.played_hours}</p>
+                            <div key={review._id} className="rounded-md border-black border-solid border-2 my-4 p-4 text-ms">
+                                <p><span className="font-bold">User </span>{review.created_by.username}</p>
+                                <p><span className="font-bold">Description </span>{review.description}</p>
+                                <p><span className="font-bold">Rate </span>{review.rate}/10</p>
+                                <p><span className="font-bold">Played hours </span>{review.played_hours}</p>
                             </div>
                         )
                     })
