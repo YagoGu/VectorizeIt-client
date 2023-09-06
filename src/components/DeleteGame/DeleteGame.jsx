@@ -24,7 +24,7 @@ function DeleteGame(props) {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)} className="flex justify-center rounded-md border-black border-solid border-2 content-center my-0.5">
             <button type="submit">Delete game</button>
         </form>
     )

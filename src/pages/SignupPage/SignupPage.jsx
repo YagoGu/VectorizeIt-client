@@ -48,34 +48,54 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <div className="rounded-md border-black border-solid border-2 my-4 p-4 flex flex-col items-center">
+      <h1 className="text-center text-xl p-4 font-bold">Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
         
+      <div className="flex flex-row items-center text-sm m-4">
         <label>Username:</label>
-        <input type="text" name="username" value={username} onChange={handleUsername} />
-        
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input 
+        className="rounded-md border-black border-solid border-2 m-2"
+        type="text" 
+        name="username" 
+        value={username} 
+        onChange={handleUsername} />
+      </div>
 
+      <div className="flex flex-row items-center text-sm m-4">  
+        <label>Email:</label>
+        <input 
+        className="rounded-md border-black border-solid border-2 m-2"
+        type="email" 
+        name="email" 
+        value={email} 
+        onChange={handleEmail} />
+      </div>
+
+      <div className="flex flex-row items-center text-sm m-4">
         <label>Password:</label>
         <input
+          className="rounded-md border-black border-solid border-2 m-2"
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
+      </div>
 
+      <div className="flex flex-row items-center text-sm m-4">
         <label>Birhtday</label>
-        <input 
+        <input
+          className="rounded-md border-black border-solid border-2 m-2"
           type="date"
           name="birthday"
           value={birthday}
           onChange={handleBirthday} 
         />
+      </div>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="justify-center rounded-md border-black border-solid border-2 m-4 w-60">Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

@@ -80,36 +80,47 @@ function UpdateProfile(props){
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} enctype="multipart/form-data">
-            <h3>Modify your review</h3>
+        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} enctype="multipart/form-data" className="flex flex-col justify-center rounded-md border-black border-solid border-2 content-center my-2">
 
+        <div className="flex flex-row items-center">
             <label>Username</label>
             <input 
             type="text"
             name="username"
             value={form.username}
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
             />
+        </div>
 
+        <div className="flex flex-row items-center">
             <label>Email</label>
             <input 
             type="email"
             name="email"
             value={form.email}
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
             />
+        </div>
 
+        <div className="flex flex-row items-center">
             <label>Birthday</label>
             <input 
             type="date" 
             name="birthday"
             value={form.birthday}
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
             />
+        </div>
 
+        <div className="flex flex-row items-center">
             <label>Password</label>
             <input 
             type="password" 
             name="password"
             value={form.password}
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
             />
+        </div>
 
             <input 
             type="file"
@@ -118,9 +129,9 @@ function UpdateProfile(props){
             />
 
             {detectImg &&
-            (<img src={form.profile_picture} alt="your image" />)}
+            (<img src={form.profile_picture} alt="your image" className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"/>)}
 
-            <button type="submit">Update your profile</button>
+            <button type="submit" className="flex justify-center rounded-md border-black border-solid border-2 content-center m-2">Update your profile</button>
 
         </form>
     )
