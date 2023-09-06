@@ -1,3 +1,48 @@
-.game img{
-    width: 150px;
+.videogame{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5vw;
+}
+
+.game{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+
+.game img {
+    width: 40vw;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    font-size: 4.5vw;
+}
+
+.info p{
+    margin: 2vw 4vw;
+}
+
+.options {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.options button{
+    display: flex;
+    flex-direction: column;
+    height: 20vw;
+    width: 26vw;
+    margin: 0 2vw;
+    margin-bottom: 4vw;
+    border-radius: 2vw;
+    justify-content: space-around;
+    font-size: 4vw;
 }

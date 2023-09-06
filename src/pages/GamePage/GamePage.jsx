@@ -93,30 +93,30 @@ function GamePage() {
             </div>
             <div className="info">
                 <p>{title}</p>
-                <p>{corporation}</p>
-                <p>{description}</p>
-                <p>{contributed_by ? (contributed_by.username) : ("Uknown")}</p>
-                <>
-                    {isLoggedIn && !played && (
-                        <AddPlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
-                    )}
-                    {isLoggedIn && played && (
-                        <RemovePlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
-                    )}
-                    {isLoggedIn && !reviewed && (
-                        <>
-                        <button onClick={showComponentAddReview}>Add a review</button>
-                        {showAddReview && (<AddReview idUser={idUser} idGame={idGame} setReviewed={setReviewed} setShowAddReview={setShowAddReview}/>)}
-                        </>
-                    )}
-                    {isLoggedIn && reviewed &&(
-                        <>
-                        <button onClick={showComponentModifyReview}>Modify your review</button>
-                        {showModifyReview && (<ModifyReview idUser={idUser} idGame={idGame} setShowModifyReview={setShowModifyReview}/>)}
-                        <DeleteReview idUser={idUser} idGame={idGame} setReviewed={setReviewed}/>
-                        </>
-                    )}
-                </>
+                <p><span>Created by:</span> {corporation}</p>
+                <p><span>About it:</span> {description}</p>
+                <p><span>Added by:</span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
+            </div>
+            <div className="options">
+                {isLoggedIn && !played && (
+                    <AddPlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
+                )}
+                {isLoggedIn && played && (
+                    <RemovePlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
+                )}
+                {isLoggedIn && !reviewed && (
+                    <>
+                    <button onClick={showComponentAddReview}>Add a review</button>
+                    {showAddReview && (<AddReview idUser={idUser} idGame={idGame} setReviewed={setReviewed} setShowAddReview={setShowAddReview}/>)}
+                    </>
+                )}
+                {isLoggedIn && reviewed &&(
+                    <>
+                    <button onClick={showComponentModifyReview}>Modify your review</button>
+                    <DeleteReview idUser={idUser} idGame={idGame} setReviewed={setReviewed}/>
+                    {showModifyReview && (<ModifyReview idUser={idUser} idGame={idGame} setShowModifyReview={setShowModifyReview}/>)}
+                    </>
+                )}
             </div>
             <div className="reviews">
                 <Link to={`/review/${idGame}/all`}>

@@ -69,13 +69,16 @@ function ModifyReview(props) {
         <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)}>
             <h3>Modify your review</h3>
 
+            <div className="form-group">
             <label>Description</label>
             <input 
             type="textarea"
             name="description"
             value={form.description}
             />
+            </div>
 
+            <div className="form-group">
             <label>Rate</label>
             <select name="rate" value={form.rate}>
                 <option>10</option>
@@ -89,15 +92,18 @@ function ModifyReview(props) {
                 <option>2</option>
                 <option>1</option>
             </select>
+            </div>
 
+            <div className="form-group">
             <label>Played hours</label>
             <input 
             type="number"
             name="played_hours"
             value={form.played_hours}
             />
+            </div>
 
-            <button type="submit">Update your review</button>
+            <button type="submit" id="submit-btn">Update your review</button>
 
         </form>
     )

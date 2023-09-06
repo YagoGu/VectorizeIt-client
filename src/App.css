@@ -1,6 +1,7 @@
 @media screen and (max-width: 450px) {
 
   .App {
+    font-family: 'Open Sans', sans-serif;
     margin: 10vw 5vw;
   }
 
