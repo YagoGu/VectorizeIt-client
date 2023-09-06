@@ -43,8 +43,8 @@ function DeleteReview(props) {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <button type="submit">Delete your review</button>
+        <form onSubmit={(e) => handleSubmit(e)} className="flex justify-center rounded-md border-black border-solid border-2 content-center my-2">
+            <button type="submit" >Delete your review</button>
         </form>
     )
 

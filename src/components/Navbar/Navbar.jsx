@@ -19,19 +19,19 @@ function Navbar() {
 
       {isLoggedIn && (
         <>
-          <Link to={`/user/${idUser}`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-4">
+          <Link to={`/user/${idUser}`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-0.5 ml-2 text-xs">
             <button className="">Your page</button>
           </Link>
 
-          <Link to={`/game/${idUser}/played-games`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-4">
+          <Link to={`/game/${idUser}/played-games`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs">
             <button>Games played</button>
           </Link>
 
-          <Link to={`/user/${idUser}/created-games`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-4">
+          <Link to={`/user/${idUser}/created-games`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs">
             <button>Games created</button>
           </Link>
 
-          <button onClick={logOutUser} className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-4">Logout</button>
+          <button onClick={logOutUser} className="border-2 rounded-lg border-solid border-black py-1 px-1 mx-0.5 text-xs">Logout</button>
 
           <span>{user && user.name}</span>
         </>

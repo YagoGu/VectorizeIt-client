@@ -25,7 +25,7 @@ function AddPlayedGame(props) {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)} className="flex justify-center rounded-md border-black border-solid border-2 content-center my-2">
             <button type="submit">Add game as played</button>
         </form>
     )

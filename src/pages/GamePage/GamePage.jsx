@@ -105,7 +105,7 @@ function GamePage() {
             </div>
         </div>
         <div>
-            <div className="">
+            <div className="flex flex-col justify-center">
                 {isLoggedIn && !played && (
                     <AddPlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
                 )}
@@ -114,13 +114,13 @@ function GamePage() {
                 )}
                 {isLoggedIn && !reviewed && (
                     <>
-                    <button onClick={showComponentAddReview}>Add a review</button>
+                    <button className="flex justify-center rounded-md border-black border-solid border-2 content-center" onClick={showComponentAddReview}>Add a review</button>
                     {showAddReview && (<AddReview idUser={idUser} idGame={idGame} setReviewed={setReviewed} setShowAddReview={setShowAddReview}/>)}
                     </>
                 )}
                 {isLoggedIn && reviewed &&(
                     <>
-                    <button onClick={showComponentModifyReview}>Modify your review</button>
+                    <button className="flex justify-center rounded-md border-black border-solid border-2 content-center" onClick={showComponentModifyReview}>Modify your review</button>
                     <DeleteReview idUser={idUser} idGame={idGame} setReviewed={setReviewed}/>
                     {showModifyReview && (<ModifyReview idUser={idUser} idGame={idGame} setShowModifyReview={setShowModifyReview}/>)}
                     </>

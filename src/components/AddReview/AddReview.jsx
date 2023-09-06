@@ -49,20 +49,21 @@ function AddReview(props) {
 
     return (
         
-        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)}>
+        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} className="flex flex-col justify-center rounded-md border-black border-solid border-2 content-center my-2">
 
-            <div className="form-group">
+            <div className="flex flex-row items-center">
             <label>Description</label>
             <input 
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
             type="textarea"
             name="description"
             value={form.description}
             />
             </div>
 
-            <div className="form-group">
+            <div className="flex flex-row items-center">
             <label>Rate</label>
-            <select name="rate" value={form.rate}>
+            <select name="rate" value={form.rate} className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36">
                 <option>10</option>
                 <option>9</option>
                 <option>8</option>
@@ -76,16 +77,17 @@ function AddReview(props) {
             </select>
             </div>
 
-            <div className="form-group">
-            <label>Played hours</label>
+            <div className="flex flex-row items-center">
+            <label className="pr-2">Played hours</label>
             <input 
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
             type="number"
             name="playedHours"
             value={form.playedHours}
             />
             </div>
 
-            <button type="submit" id="submit-btn">Create the review</button>
+            <button type="submit" className="flex justify-center rounded-md border-black border-solid border-2 content-center m-2">Create the review</button>
 
         </form>
         
