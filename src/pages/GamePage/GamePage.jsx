@@ -58,7 +58,8 @@ function GamePage() {
             .then((data) => {
                 setReviewed(checkIfReviewed(data.reviews))
                 const arr = data.reviews.map((rev)=>{return rev.rate})
-                setAvg(arr.reduce((a, b) => a + b) / arr.length)
+                const average = arr.reduce((a, b) => a + b) / arr.length
+                setAvg(average.toFixed(2))
                 return setVideogame(data)
             })
             .catch((err) => {
@@ -100,7 +101,7 @@ function GamePage() {
                 <p><span className="font-bold">Created by </span> {corporation}</p>
                 <p><span className="font-bold">About it </span> {description}</p>
                 <p><span className="font-bold">Added by </span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
-                <p><span className="font-bold">Avg rate </span>{avg}</p>
+                <p><span className="font-bold">Avg rate </span>{avg} / 10</p>
             </div>
         </div>
         <div>
