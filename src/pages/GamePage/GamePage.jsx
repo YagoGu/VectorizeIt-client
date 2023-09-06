@@ -126,7 +126,7 @@ function GamePage() {
                     </>
                 )}
             </div>
-            <div className="">
+            <div>
                 <Link to={`/review/${idGame}/all`} className="flex justify-center rounded-md border-black border-solid border-2 my-4">
                     See all reviews
                 </Link>

@@ -28,18 +28,22 @@ function ReviewsPage () {
 
     return (
       <>
-        <h1>Reviews page</h1>
-        <div className="reviews">
+        <h1 className="text-center text-xl p-4 font-bold">Reviews page</h1>
+        <div className="flex flex-col items-center justify-center">
         {
                 reviews?.map((review) => {
                     return (
-                    <div className="review" key={review._id}>
-                        <img src={review.created_by.profile_picture} alt={`${review.created_by.username} picture`} />
-                        <p>{review.created_by.username}</p>
+                    <div className="rounded-md border-black border-solid border-2 my-4 p-4 text-ms w-60" key={review._id}>
+                      <div className="flex flex-row items-center">
+                        <img className="rounded-full border-black border-solid border-2 w-10" src={review.created_by.profile_picture} alt={`${review.created_by.username} picture`} />
+                        <p className="ml-4 font-bold">{review.created_by.username}</p>
+                      </div>
+                      <div className="mt-2">
+                        <p className="font-bold">Description</p>
                         <p>{review.description}</p>
-                        <p>{review.rate}</p>
-                        <p>{review.played_hours}</p>
-                        {}
+                        <p><span className="font-bold">Rate </span>{review.rate} / 10</p>
+                        <p><span className="font-bold">Played hours </span>{review.played_hours}</p>
+                        </div>
                     </div>
                     )
                 })

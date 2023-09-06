@@ -45,22 +45,31 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div className="rounded-md border-black border-solid border-2 my-4 p-4 flex flex-col items-center">
+      <h1 className="text-center text-xl p-4 font-bold">Login</h1>
 
       <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <div className="flex flex-row items-center text-sm m-4">
+          <label>Email:</label>
+          <input 
+          className="rounded-md border-black border-solid border-2 m-2 mx-4 w-44"
+          type="email" 
+          name="email" 
+          value={email} 
+          onChange={handleEmail} />
+        </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <button type="submit">Login</button>
+        <div className="flex flex-row items-center text-sm m-4">
+          <label>Password:</label>
+          <input
+            className="rounded-md border-black border-solid border-2 m-2"
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+          />
+        </div>
+        <button type="submit" className="justify-center rounded-md border-black border-solid border-2 m-4 w-60">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
