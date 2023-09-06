@@ -6,7 +6,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 function HomePage() {
 
-  const apiURL= "${process.env.REACT_APP_SERVER_URL}/"
+  const apiURL= `${process.env.REACT_APP_SERVER_URL}/`
 
   const [videogames, setVideogames] = useState([])
   const [updateVideogames, setupdatedVideogames] = useState([]);
