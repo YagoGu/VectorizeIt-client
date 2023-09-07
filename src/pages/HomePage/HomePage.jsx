@@ -28,7 +28,7 @@ function HomePage() {
 
   const searchFound = (gameName) => {
     const searchGame = updateVideogames.filter((game) => {
-      return game.title.match(gameName)
+      return game.title.toLowerCase().replace(" ","").match(gameName.toLowerCase().replace(" ",""))
     })
     setVideogames(searchGame)
   }
