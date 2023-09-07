@@ -38,37 +38,38 @@ function ProfilePage() {
   const {username, email, birthday, profile_picture, games_played} = userprofile;
   
   return (
-    <>
-      <h1>User page</h1>
-        <div className="user">
-          <img src={profile_picture} alt={`${username} profile picture`} />
-          <div className="user-info">
-            <p>USERNAME: {username}</p>
-            <p>EMAIL: {email}</p>
-            <p>BIRTHDAY: {birthday}</p>
+    <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-row rounded-md border-black border-solid border-2 my-4 p-4 text-ms">
+          <img className="rounded-full border-black border-solid border-2 w-16 h-16 mr-8" src={profile_picture} alt={`${username} profile picture`} />
+          <div className="text-xs">
+            <p className="my-0.5"><span className="font-bold">Username</span> {username}</p>
+            <p className="my-0.5"><span className="font-bold">Email</span> {email}</p>
+            <p className="my-0.5"><span className="font-bold">Birhtday</span> {birthday?.split("T")[0]}</p>
           </div>
+        </div>
+        <div className="flex flex-col justify-center w-60">
           {isLoggedIn && 
           <>
-          <button onClick={showComponentUpdateUser}>Update your profile</button>
+          <button onClick={showComponentUpdateUser} className="rounded-md border-black border-solid border-2 content-center my-2">Update your profile</button>
           {showUpdateUser && <UpdateProfile idUser={idUser} setShowUpdateUser={setShowUpdateUser}/>}
           </>
           }
-          <Link to={`/game/${idUser}/played-games`}>
+          <Link to={`/game/${idUser}/played-games`} className="flex justify-center rounded-md border-black border-solid border-2 content-center my-0.5">
             See played games
           </Link>
         </div>
-        <div className="games-played">
+        <div className="flex flex-wrap flex-row items-center justify-center mt-4">
           {
-            games_played?.map((games) => {
+            games_played?.slice(-5).map((games) => {
               return (
-              <div className="game-front" key={games._id}>
-                <p>{games.title}</p>
-                <img src={games.videogame_picture} alt={`${games.title} front`} />
+              <div className="flex flex-col w-28 h-48 p-2 m-1 rounded-lg border-2 border-black border-solid" key={games._id}>
+                <p className="text-xs py-1 text-center">{games.title}</p>
+                <img className="w-20 h-27 mx-2 my-1" src={games.videogame_picture} alt={`${games.title} front`} />
               </div>  
             )})
           }
         </div>
-    </>
+    </div>
   );
 }
 

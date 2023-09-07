@@ -1,4 +1,4 @@
-const baseUrl = "${process.env.REACT_APP_SERVER_URL}/auth";
+const baseUrl = `${process.env.REACT_APP_SERVER_URL}/auth`;
 
 const errorHandler = (err) => {
   throw err;

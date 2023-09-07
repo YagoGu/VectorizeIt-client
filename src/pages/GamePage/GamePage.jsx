@@ -25,6 +25,7 @@ function GamePage() {
     const [showAddReview, setShowAddReview] = useState(false)
     const [showModifyReview, setShowModifyReview] = useState(false)
     const [played, setPlayed] = useState(false)
+    const [avg, setAvg] = useState()
 
     function checkIfReviewed(arr)  {
         const arrCreated = arr.map((review) => {
@@ -56,6 +57,9 @@ function GamePage() {
             })
             .then((data) => {
                 setReviewed(checkIfReviewed(data.reviews))
+                const arr = data.reviews.map((rev)=>{return rev.rate})
+                const average = arr.reduce((a, b) => a + b) / arr.length
+                setAvg(average.toFixed(2))
                 return setVideogame(data)
             })
             .catch((err) => {
@@ -86,57 +90,62 @@ function GamePage() {
     }, [apiURL2])
 
     return (
-        <div className="videogame">
-            <div className="game">
-                <img src={videogame_picture} alt={`${title} picture`} />
-                <p>{pegi}</p>
+    <div className="my-4 p-2">
+        <div className="flex flex-row rounded-md border-black border-solid border-2">
+            <div className="p-2">
+                <img className="w-22 h-32" src={videogame_picture} alt={`${title} picture`} />
+                {/* <p>{pegi}</p> */}
             </div>
-            <div className="info">
-                <p>{title}</p>
-                <p>{corporation}</p>
-                <p>{description}</p>
-                <p>{contributed_by ? (contributed_by.username) : ("Uknown")}</p>
-                <>
-                    {isLoggedIn && !played && (
-                        <AddPlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
-                    )}
-                    {isLoggedIn && played && (
-                        <RemovePlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
-                    )}
-                    {isLoggedIn && !reviewed && (
-                        <>
-                        <button onClick={showComponentAddReview}>Add a review</button>
-                        {showAddReview && (<AddReview idUser={idUser} idGame={idGame} setReviewed={setReviewed} setShowAddReview={setShowAddReview}/>)}
-                        </>
-                    )}
-                    {isLoggedIn && reviewed &&(
-                        <>
-                        <button onClick={showComponentModifyReview}>Modify your review</button>
-                        {showModifyReview && (<ModifyReview idUser={idUser} idGame={idGame} setShowModifyReview={setShowModifyReview}/>)}
-                        <DeleteReview idUser={idUser} idGame={idGame} setReviewed={setReviewed}/>
-                        </>
-                    )}
-                </>
+            <div className="flex flex-col justify-center text-xs py-1">
+                <p className="font-bold py-0.5 px-1">{title}</p>
+                <p className="py-0.5 px-1"><span className="font-bold">Created by </span> {corporation}</p>
+                <p className="py-0.5 px-1"><span className="font-bold">About it </span> {description}</p>
+                <p className="py-0.5 px-1"><span className="font-bold">Added by </span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
+                <p className="py-0.5 px-1"><span className="font-bold">Avg rate </span>{avg} / 10</p>
             </div>
-            <div className="reviews">
-                <Link to={`/review/${idGame}/all`}>
+        </div>
+        <div>
+            <div className="flex flex-col justify-center">
+                {isLoggedIn && !played && (
+                    <AddPlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
+                )}
+                {isLoggedIn && played && (
+                    <RemovePlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
+                )}
+                {isLoggedIn && !reviewed && (
+                    <>
+                    <button className="flex justify-center rounded-md border-black border-solid border-2 content-center" onClick={showComponentAddReview}>Add a review</button>
+                    {showAddReview && (<AddReview idUser={idUser} idGame={idGame} setReviewed={setReviewed} setShowAddReview={setShowAddReview}/>)}
+                    </>
+                )}
+                {isLoggedIn && reviewed &&(
+                    <>
+                    <button className="flex justify-center rounded-md border-black border-solid border-2 content-center" onClick={showComponentModifyReview}>Modify your review</button>
+                    <DeleteReview idUser={idUser} idGame={idGame} setReviewed={setReviewed}/>
+                    {showModifyReview && (<ModifyReview idUser={idUser} idGame={idGame} setShowModifyReview={setShowModifyReview}/>)}
+                    </>
+                )}
+            </div>
+            <div>
+                <Link to={`/review/${idGame}/all`} className="flex justify-center rounded-md border-black border-solid border-2 my-4">
                     See all reviews
                 </Link>
                 {
                     reviews?.slice(-2).map((review) => {
 
                         return (
-                            <div key={review._id} className="review">
-                                <p>{review.created_by.username}</p>
-                                <p>{review.description}</p>
-                                <p>{review.rate}</p>
-                                <p>{review.played_hours}</p>
+                            <div key={review._id} className="rounded-md border-black border-solid border-2 my-4 p-4 text-ms">
+                                <p><span className="font-bold">User </span>{review.created_by.username}</p>
+                                <p><span className="font-bold">Description </span>{review.description}</p>
+                                <p><span className="font-bold">Rate </span>{review.rate}/10</p>
+                                <p><span className="font-bold">Played hours </span>{review.played_hours}</p>
                             </div>
                         )
                     })
                 }
             </div>
         </div>
+    </div>
     )
 }
 

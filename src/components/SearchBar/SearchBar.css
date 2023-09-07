@@ -1,0 +1,21 @@
+/* @media screen and (max-width: 450px) {
+    form {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        align-content: flex-end;
+        justify-content: center;
+    }
+
+    form img {
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        /* background-color: #E2CFEA;
+    }
+
+    input{ 
+        height: 20px;
+        width: 80%;
+    }
+} */

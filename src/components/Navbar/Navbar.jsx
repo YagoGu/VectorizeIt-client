@@ -1,53 +1,51 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/auth.context";
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-
+  
   const idUser = user?._id;
+  
 
   return (
-    <nav>
-      <Link to="/">
+    <nav className="flex flex-row flex-nowrap justify-around items-center">
+      <Link to="/" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 text-xs h-12">
         <button>Home</button>
       </Link>
 
       {isLoggedIn && (
         <>
-          <button onClick={logOutUser}>Logout</button>
-
-          <Link to={`/user/${idUser}`}>
-            <button>Your page</button>
-            {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+          <Link to={`/user/${idUser}`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mr-0.5 ml-1 text-xs h-12">
+            <button className="">Your page</button>
           </Link>
 
-          <Link to={`/game/${idUser}/played-games`}>
+          <Link to={`/game/${idUser}/played-games`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
             <button>Games played</button>
           </Link>
 
-          <Link to={`/user/${idUser}/created-games`}>
+          <Link to={`/user/${idUser}/created-games`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
             <button>Games created</button>
           </Link>
 
-          <span>{user && user.name}</span>
+          <button onClick={logOutUser} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-1 ml-0.5 text-xs h-12">Logout</button>
         </>
       )}
 
       {!isLoggedIn && (
-        <>
-          <Link to="/signup">
+        <div className="flex flex-row justify-end">
+          <Link to="/signup" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
             {" "}
             <button>Sign Up</button>{" "}
           </Link>
-          <Link to="/login">
+          <Link to="/login" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
             {" "}
             <button>Login</button>{" "}
           </Link>
-        </>
+        </div>
       )}
     </nav>
   );

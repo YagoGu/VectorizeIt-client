@@ -1,3 +1,79 @@
-.game img{
-    width: 150px;
-}
+/* @media screen and (max-width: 450px) {
+    .videogame{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 5vw;
+    }
+
+    .game{
+        display: flex;
+        flex-direction: column;
+        width: 40vw;
+        box-shadow: -5px 0px 10px #6247AA;
+        border-radius: 2vw;
+        padding: 2vw;
+    }
+
+    .game img {
+        width: 40vw;
+    }
+
+    .info{
+        display: flex;
+        flex-direction: column;
+        width: 36vw;
+        font-size: 4.5vw;
+        box-shadow: 5px 0px 10px #6247AA;
+        border-radius: 2vw;
+    }
+
+    .info p{
+        margin: 2vw 4vw;
+    }
+
+    .options {
+        margin-top: 4vw;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .options button{
+        display: flex;
+        flex-direction: column;
+        height: 19vw;
+        width: 24vw;
+        margin: 0 1vw;
+        margin-bottom: 4vw;
+        border-radius: 2vw;
+        justify-content: space-around;
+        font-size: 4vw;
+    }
+
+    .review {
+        display: flex;
+        flex-direction: column;
+        border-radius: 2vw;
+        box-shadow: 0px 0px 10px #6247AA;
+        margin-top: 5vw;
+    }
+
+    .review p {
+        margin: 2vw 1vw;
+        width: 100%;
+        padding-right: 1vw;
+    }
+    .review span{
+        margin-right: 1vw;
+        padding-right: 1vw;
+        border-right: 1px black dotted;
+    }
+
+    span {
+        font-weight: bolder;
+    }
+} */
