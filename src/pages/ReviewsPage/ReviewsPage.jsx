@@ -33,9 +33,9 @@ function ReviewsPage () {
         {
                 reviews?.map((review) => {
                     return (
-                    <div className="rounded-md border-black border-solid border-2 my-4 p-4 text-ms w-60 sm:w-11/12 sm:text-2xl" key={review._id}>
+                    <div className="rounded-lg shadow-xl border-2 my-4 p-4 text-ms w-60 sm:w-11/12 sm:text-2xl" key={review._id}>
                       <div className="flex flex-row items-center">
-                        <img className="rounded-full border-black border-solid border-2 w-10 h-10 sm:w-36 sm:h-36" src={review.created_by.profile_picture} alt={`${review.created_by.username} picture`} />
+                        <img className="rounded-full shadow-xl border-2 w-10 h-10 sm:w-36 sm:h-36" src={review.created_by.profile_picture} alt={`${review.created_by.username} picture`} />
                         <p className="ml-4 font-bold sm:ml-12">{review.created_by.username}</p>
                       </div>
                       <div className="mt-2">

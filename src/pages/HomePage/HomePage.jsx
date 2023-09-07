@@ -37,7 +37,7 @@ function HomePage() {
     <>
       <h1 className="text-center text-xl p-4 font-bold">Home page</h1>
       <SearchBar searchFound={searchFound}/>
-      <div className="flex flex-wrap flex-row items-center justify-center mt-4">
+      <div className="flex flex-wrap flex-row items-center content-center justify-center mt-4">
         {
           
           videogames.map((properties) => {

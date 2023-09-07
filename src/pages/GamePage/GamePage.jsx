@@ -96,21 +96,21 @@ function GamePage() {
     }, [apiURL2])
 
     return (
-    <div className="my-4 p-2">
-        <div className="flex flex-row rounded-md border-black border-solid border-2">
-            <div className="p-2">
-                <img className="w-22 h-32 sm:w-80 sm:h-96 sm:m-8" src={videogame_picture} alt={`${title} picture`} />
+    <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-row items-center rounded-lg shadow-2xl sm:m-24 m-4 sm:w-8/12 w-11/12">
+            <div className="flex flex-row my-4 m-4 text-ms sm:w-11/12">
+                <img className="rounded-lg shadow-xl w-24 h-28 sm:w-80 sm:h-96 sm:m-8" src={videogame_picture} alt={`${title} picture`} />
                 {/* <p>{pegi}</p> */}
             </div>
-            <div className="flex flex-col text-xs py-1 sm:text-xl sm:justify-around sm:m-8">
+            <div className="flex flex-col text-xs py-1 sm:text-xl sm:justify-around sm:m-8 sm:w-11/12 sm:h-52">
                 <p className="font-bold py-0.5 px-1 sm:text-2xl">{title}</p>
-                <p className="py-0.5 px-1"><span className="font-bold">Created by </span> {corporation}</p>
-                <p className="py-0.5 px-1"><span className="font-bold">About it </span> {description}</p>
-                <p className="py-0.5 px-1"><span className="font-bold">Added by </span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
-                <p className="py-0.5 px-1"><span className="font-bold">Avg rate </span>{avg} / 10</p>
+                <p className="py-0.5 px-1 sm:py-2 sm:pl-12"><span className="font-bold">Created by </span> {corporation}</p>
+                <p className="py-0.5 px-1 sm:py-2 sm:pl-12"><span className="font-bold">About it </span> {description}</p>
+                <p className="py-0.5 px-1 sm:py-2 sm:pl-12"><span className="font-bold">Added by </span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
+                <p className="py-0.5 px-1 sm:py-2 sm:pl-12"><span className="font-bold">Avg rate </span>{avg} / 10</p>
             </div>
         </div>
-        <div>
+        <div className="flex flex-col justify-center sm:w-8/12 w-11/12">
             <div className="flex flex-col justify-center">
                 {isLoggedIn && !played && (
                     <AddPlayedGame idUser={idUser} idGame={idGame} setPlayed={setPlayed}/>
@@ -133,8 +133,9 @@ function GamePage() {
                 )}
             </div>
             <div>
-                <Link to={`/review/${idGame}/all`} className="flex justify-center rounded-md border-black border-solid border-2 my-4">
-                    See all reviews
+                <Link to={`/review/${idGame}/all`} className="sm:px-5 sm:py-2.5 relative rounded group overflow-hidden font-medium bg-violet-50 text-violet-600 inline-block py-0.5 px-0.5 ml-0.5 text-[8px] h-4 w-full sm:h-12 h-auto sm:text-base my-2 text-center">
+                    <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-violet-600 group-hover:h-full opacity-90"></span>
+                    <span className="relative group-hover:text-white">See all reviews</span>
                 </Link>
                 <div className="sm:text-xl">
                 {
@@ -142,7 +143,7 @@ function GamePage() {
                     reviews?.slice(-2).map((review) => {
 
                         return (
-                            <div key={review._id} className="rounded-md border-black border-solid border-2 my-4 p-4 text-ms">
+                            <div key={review._id} className="rounded-lg shadow-xl border-2 my-4 p-4 text-ms">
                                 <p><span className="font-bold">User </span>{review.created_by.username}</p>
                                 <p className="sm:flex sm:flex-col"><span className="font-bold">Description </span>{review.description}</p>
                                 <p><span className="font-bold">Rate </span>{review.rate}/10</p>
