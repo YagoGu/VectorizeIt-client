@@ -15,7 +15,7 @@ function Navbar() {
     <nav className="flex flex-row flex-nowrap justify-around items-center">
       <Link to="/" className="flex flex-col justify-center text-[8px] h-2 sm:h-12 sm:text-base">
       <button className="rounded relative inline-flex group items-center justify-center px-0.5 py-0.5 m-0.5 sm:px-3.5 sm:py-2 sm:m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
-          <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+          <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-fover:w-20 sm:group-hover:w-32 group-hover:h-32 opacity-10"></span>
           <span className="relative">Home</span>
         </button>
       </Link>
@@ -24,21 +24,21 @@ function Navbar() {
         <>
           <Link to={`/user/${idUser}`} className="flex flex-col justify-center text-[8px] h-12 sm:text-base">
           <button className="rounded relative inline-flex group items-center justify-center px-0.5 py-0.5 m-0.5 sm:px-3.5 sm:py-2 sm:m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
-            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-fover:w-20 sm:group-hover:w-32 group-hover:h-32 opacity-10"></span>
             <span className="relative">Your page</span>
           </button>
           </Link>
 
           <Link to={`/game/${idUser}/played-games`} className="flex flex-col justify-center text-[8px] h-12 sm:text-base">
           <button className="rounded relative inline-flex group items-center justify-center px-0.5 py-0.5 m-0.5 sm:px-3.5 sm:py-2 sm:m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
-            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-fover:w-20 sm:group-hover:w-322 group-hover:h-32 opacity-10"></span>
             <span className="relative">Games played</span>
           </button>
           </Link>
 
           <Link to={`/user/${idUser}/created-games`} className="flex flex-col justify-center text-[8px] h-12 sm:text-base">
           <button className="rounded relative inline-flex group items-center justify-center px-0.5 py-0.5 m-0.5 sm:px-3.5 sm:py-2 sm:m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
-            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-fover:w-20 sm:group-hover:w-32 group-hover:h-32 opacity-10"></span>
             <span className="relative">Games created</span>
           </button>
           </Link>
@@ -53,18 +53,18 @@ function Navbar() {
 
       {!isLoggedIn && (
         <div className="flex flex-row justify-end">
-          <Link to="/signup" className="flex flex-col justify-center text-xs h-12 sm:text-base">
+          <Link to="/signup" className="flex flex-col justify-center text-[8px] h-12 sm:text-base">
             {" "}
-          <button className="rounded relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
-            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+          <button className="rounded relative inline-flex group items-center justify-center px-0.5 py-0.5 m-0.5 sm:px-3.5 sm:py-2 sm:m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
+            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-fover:w-20 sm:group-hover:w-32 group-hover:h-32 opacity-10"></span>
             <span className="relative">Sign up</span>
           </button>
             {" "}
           </Link>
-          <Link to="/login" className="flex flex-col justify-center text-xs h-12 sm:text-base">
+          <Link to="/login" className="flex flex-col justify-center text-[8px] h-12 sm:text-base">
             {" "}
-            <button className="rounded relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
-            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-20 group-hover:h-20 opacity-10"></span>
+            <button className="rounded relative inline-flex group items-center justify-center px-0.5 py-0.5 m-0.5 sm:px-3.5 sm:py-2 sm:m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
+            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-fover:w-20 sm:group-hover:w-32 group-hover:h-20 opacity-10"></span>
             <span className="relative">Login</span>
           </button>
             {" "}

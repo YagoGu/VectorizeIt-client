@@ -24,8 +24,11 @@ function DeleteGame(props) {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} className="flex justify-center rounded-md border-black border-solid border-2 content-center my-0.5 sm:w-48 w-28">
-            <button type="submit">Delete game</button>
+        <form onSubmit={(e) => handleSubmit(e)}>
+            <button type="submit" className="sm:px-5 sm:py-2.5 relative rounded group overflow-hidden font-medium bg-red-50 text-red-600 inline-block py-0.5 px-0.5 ml-0.5 text-[8px] h-4 w-full sm:h-12 h-auto sm:text-base">
+                <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-red-600 group-hover:h-full opacity-90"></span>
+                <span className="relative group-hover:text-white">Delete game</span>
+            </button>
         </form>
     )
 }

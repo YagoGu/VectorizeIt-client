@@ -52,7 +52,10 @@ function ProfilePage() {
         <div className="flex flex-col justify-center w-11/12">
           {isLoggedIn && 
           <>
-          <button onClick={showComponentUpdateUser} className="sm:text-2xl sm:py-4 rounded-md border-black border-solid border-2 content-center my-2">Update your profile</button>
+          <button onClick={showComponentUpdateUser} className="sm:px-5 sm:py-2.5 relative rounded group overflow-hidden font-medium bg-violet-50 text-violet-600 inline-block py-0.5 px-0.5 ml-0.5 text-[8px] h-4 w-full sm:h-12 h-auto sm:text-base mb-2 text-center">
+                    <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-violet-600 group-hover:h-full opacity-90"></span>
+                    <span className="relative group-hover:text-white">Update your profile</span>
+          </button>
           {showUpdateUser && <UpdateProfile idUser={idUser} setShowUpdateUser={setShowUpdateUser}/>}
           </>
           }
