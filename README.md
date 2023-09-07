@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Welcome to VectorizeIt client !!!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Programming lenguages, frameworks and libraries
+- JavaScript
+- Express.js
+- React.js
+- Axios
+- Tailwind.css
 
-## Available Scripts
+## Color palette
+![Palette colour image](./paleta.jpg)
 
-In the project directory, you can run:
+## Link to deploy
+[VectorizeIt website] (https://adorable-bienenstitch-82eed6.netlify.app)
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Description | Type | Route | File-name
+------------- | ------------- | ------------- | -------------
+Display main | Page | / | /HomePage.jsx
+Display login | Page | /login | /HomePage.jsx
+Display sign-up | Page | /signup | /SignupPage.jsx
+Display one game | Page | /game/:idGame | /GamePage.jsx
+Display user info | Page | /user/:idUser | /ProfilePage.jsx
+Display played games | Page | /game/:idUser/played-games | /PlayedGamesPage.jsx
+Display created games | Page | /game/:idUser/created-games | /CreatedGamesPage.jsx
+Display every review form a game | Page | /review/:idGame/all | /ReviewsPage.jsx
+Display a form to add a review | Component | < AddReview /> | /AddReview.jsx
+Display a form  to modify a review | Component | < ModifyReview /> | /ModifyReview.jsx
+Display a button to delete a review | Component | < DeleteReview /> | /DeleteReview.jsx
+Display a button to add game as played | Component | < AddPlayedGame /> | /AddPlayedGame.jsx
+Display a button to remove game from played | Component | < RemovePlayedGame /> | /RemovePlayedGame.jsx
+Display a form to create a game for the DB | Component | < CreateGame /> | /CreateGame.jsx
+Display a form to modify the data of a game | Component | < ModifyGame /> | /ModifyGame.jsx
+Display a button to delete game from the DB | Component | < DeleteGame /> | /DeleteGame.jsx
+Display a form to update your profile | Component | < UpdateProfile /> | /UpdateProfile.jsx
+Display a form as a search bar to find videogames at the home page | Component | < SearchBar /> | /SearchBar.jsx
