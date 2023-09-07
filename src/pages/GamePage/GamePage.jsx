@@ -57,9 +57,15 @@ function GamePage() {
             })
             .then((data) => {
                 setReviewed(checkIfReviewed(data.reviews))
-                const arr = data.reviews.map((rev)=>{return rev.rate})
-                const average = arr.reduce((a, b) => a + b) / arr.length
-                setAvg(average.toFixed(2))
+                if (data.reviews.length == 0) {
+                    setAvg(0)
+                }
+                else {
+                    const arr = data.reviews.map((rev)=>{return rev.rate})
+                    const average = arr.reduce((a, b) => a + b) / arr.length
+                    setAvg(average.toFixed(2))
+                }
+                
                 return setVideogame(data)
             })
             .catch((err) => {
