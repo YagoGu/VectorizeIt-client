@@ -11,7 +11,7 @@
 ![Palette colour image](./paleta.jpg)
 
 ## Link to deploy
-[VectorizeIt website] (https://vectorizeit.adaptable.app)
+[VectorizeIt website] (https://adorable-bienenstitch-82eed6.netlify.app)
 
 Description | Type | Route | File-name
 ------------- | ------------- | ------------- | -------------
