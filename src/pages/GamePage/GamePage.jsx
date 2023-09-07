@@ -120,13 +120,19 @@ function GamePage() {
                 )}
                 {isLoggedIn && !reviewed && (
                     <>
-                    <button className="flex justify-center rounded-md border-black border-solid border-2 content-center" onClick={showComponentAddReview}>Add a review</button>
+                    <button className="sm:px-5 sm:py-2.5 relative rounded group overflow-hidden font-medium bg-violet-50 text-violet-600 inline-block py-0.5 px-0.5 ml-0.5 text-[8px] h-4 w-full sm:h-12 h-auto sm:text-base mb-2 text-center" onClick={showComponentAddReview}>
+                    <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-violet-600 group-hover:h-full opacity-90"></span>
+                    <span className="relative group-hover:text-white">Add a review</span>
+                    </button>
                     {showAddReview && (<AddReview idUser={idUser} idGame={idGame} setReviewed={setReviewed} setShowAddReview={setShowAddReview}/>)}
                     </>
                 )}
                 {isLoggedIn && reviewed &&(
                     <>
-                    <button className="flex justify-center rounded-md border-black border-solid border-2 content-center" onClick={showComponentModifyReview}>Modify your review</button>
+                    <button className="sm:px-5 sm:py-2.5 relative rounded group overflow-hidden font-medium bg-violet-50 text-violet-600 inline-block py-0.5 px-0.5 ml-0.5 text-[8px] h-4 w-full sm:h-12 h-auto sm:text-base text-center" onClick={showComponentModifyReview}>
+                    <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-violet-600 group-hover:h-full opacity-90"></span>
+                    <span className="relative group-hover:text-white">Modify your review</span>
+                    </button>
                     <DeleteReview idUser={idUser} idGame={idGame} setReviewed={setReviewed}/>
                     {showModifyReview && (<ModifyReview idUser={idUser} idGame={idGame} setShowModifyReview={setShowModifyReview}/>)}
                     </>

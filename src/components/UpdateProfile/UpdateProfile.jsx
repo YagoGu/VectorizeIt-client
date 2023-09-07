@@ -80,45 +80,46 @@ function UpdateProfile(props){
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} enctype="multipart/form-data" className="flex flex-col justify-center rounded-md border-black border-solid border-2 content-center my-2">
+        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} enctype="multipart/form-data" className="flex flex-col justify-center rounded-md rounded-lg shadow-xl border-2 items-center my-2 sm:text-base text-[8px]">
 
+        <div className="flex flex-col w-10/12">
         <div className="flex flex-row items-center">
-            <label>Username</label>
+            <label className="pr-4 w-3/12">Username</label>
             <input 
             type="text"
             name="username"
             value={form.username}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-11/12"
+            className="flex justify-start rounded-md rounded-lg shadow-xl border-2 border-2 m-2 w-full"
             />
         </div>
 
         <div className="flex flex-row items-center">
-            <label>Email</label>
+            <label className="pr-4 w-3/12">Email</label>
             <input 
             type="email"
             name="email"
             value={form.email}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-11/12"
+            className="flex justify-start rounded-md rounded-lg shadow-xl border-2 border-2 m-2 w-full"
             />
         </div>
 
         <div className="flex flex-row items-center">
-            <label>Birthday</label>
+            <label className="pr-4 w-3/12">Birthday</label>
             <input 
             type="date" 
             name="birthday"
             value={form.birthday}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-11/12"
+            className="flex justify-start rounded-md rounded-lg shadow-xl border-2 border-2 m-2 w-full"
             />
         </div>
 
         <div className="flex flex-row items-center">
-            <label>Password</label>
+            <label className="pr-4 w-3/12">Password</label>
             <input 
             type="password" 
             name="password"
             value={form.password}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-11/12"
+            className="flex justify-start rounded-md rounded-lg shadow-xl border-2 border-2 m-2 w-full"
             />
         </div>
 
@@ -130,9 +131,14 @@ function UpdateProfile(props){
 
             {detectImg &&
             (<img src={form.profile_picture} alt="your image" className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"/>)}
+        </div>
 
-            <button type="submit" className="sm:text-2xl sm:py-4 flex justify-center rounded-md border-black border-solid border-2 content-center m-2">Save new settings</button>
-
+        <button type="submit" className="sm:px-5 sm:py-2.5 relative rounded group overflow-hidden font-medium bg-cyan-50 text-cyan-600 inline-block py-0.5 px-0.5 ml-0.5 text-[8px] h-4 w-11/12 sm:h-12 h-auto sm:text-base my-2 text-center">
+            <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-cyan-600 group-hover:h-full opacity-90"></span>
+            <span className="relative group-hover:text-white">
+                Save new settings
+            </span>
+        </button>
         </form>
     )
 }
