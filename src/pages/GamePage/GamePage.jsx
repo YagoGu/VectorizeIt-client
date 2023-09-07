@@ -93,11 +93,11 @@ function GamePage() {
     <div className="my-4 p-2">
         <div className="flex flex-row rounded-md border-black border-solid border-2">
             <div className="p-2">
-                <img className="w-22 h-32" src={videogame_picture} alt={`${title} picture`} />
+                <img className="w-22 h-32 sm:w-80 sm:h-96 sm:m-8" src={videogame_picture} alt={`${title} picture`} />
                 {/* <p>{pegi}</p> */}
             </div>
-            <div className="flex flex-col justify-center text-xs py-1">
-                <p className="font-bold py-0.5 px-1">{title}</p>
+            <div className="flex flex-col text-xs py-1 sm:text-xl sm:justify-around sm:m-8">
+                <p className="font-bold py-0.5 px-1 sm:text-2xl">{title}</p>
                 <p className="py-0.5 px-1"><span className="font-bold">Created by </span> {corporation}</p>
                 <p className="py-0.5 px-1"><span className="font-bold">About it </span> {description}</p>
                 <p className="py-0.5 px-1"><span className="font-bold">Added by </span> {contributed_by ? (contributed_by.username) : ("Uknown")}</p>
@@ -130,19 +130,23 @@ function GamePage() {
                 <Link to={`/review/${idGame}/all`} className="flex justify-center rounded-md border-black border-solid border-2 my-4">
                     See all reviews
                 </Link>
+                <div className="sm:text-xl">
                 {
+                    
                     reviews?.slice(-2).map((review) => {
 
                         return (
                             <div key={review._id} className="rounded-md border-black border-solid border-2 my-4 p-4 text-ms">
                                 <p><span className="font-bold">User </span>{review.created_by.username}</p>
-                                <p><span className="font-bold">Description </span>{review.description}</p>
+                                <p className="sm:flex sm:flex-col"><span className="font-bold">Description </span>{review.description}</p>
                                 <p><span className="font-bold">Rate </span>{review.rate}/10</p>
                                 <p><span className="font-bold">Played hours </span>{review.played_hours}</p>
                             </div>
                         )
                     })
+                    
                 }
+                </div>
             </div>
         </div>
     </div>

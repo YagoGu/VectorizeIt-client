@@ -88,7 +88,7 @@ function UpdateProfile(props){
             type="text"
             name="username"
             value={form.username}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-11/12"
             />
         </div>
 
@@ -98,7 +98,7 @@ function UpdateProfile(props){
             type="email"
             name="email"
             value={form.email}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-11/12"
             />
         </div>
 
@@ -108,7 +108,7 @@ function UpdateProfile(props){
             type="date" 
             name="birthday"
             value={form.birthday}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-11/12"
             />
         </div>
 
@@ -118,7 +118,7 @@ function UpdateProfile(props){
             type="password" 
             name="password"
             value={form.password}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-11/12"
             />
         </div>
 
@@ -131,7 +131,7 @@ function UpdateProfile(props){
             {detectImg &&
             (<img src={form.profile_picture} alt="your image" className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"/>)}
 
-            <button type="submit" className="flex justify-center rounded-md border-black border-solid border-2 content-center m-2">Update your profile</button>
+            <button type="submit" className="sm:text-2xl sm:py-4 flex justify-center rounded-md border-black border-solid border-2 content-center m-2">Save new settings</button>
 
         </form>
     )
