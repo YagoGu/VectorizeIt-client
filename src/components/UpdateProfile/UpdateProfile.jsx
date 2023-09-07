@@ -38,7 +38,10 @@ function UpdateProfile(props){
             setForm({...form, profile_picture : response.image_url});
             setDetectImg(true);
           })
-          .catch(err => console.log("Error while uploading the file: ", err));
+          .catch((error) => {
+            // If the request resolves with an error, set the error message in the state
+            console.log(error.response.data.message);
+        });
       };
 
     const handleInputChange = (e) => {
@@ -77,6 +80,10 @@ function UpdateProfile(props){
                 }) */
                 props.setShowUpdateUser(false)
             })
+            .catch((error) => {
+                // If the request resolves with an error, set the error message in the state
+                console.log(error)
+            });
     }
 
     return (
@@ -139,6 +146,7 @@ function UpdateProfile(props){
                 Save new settings
             </span>
         </button>
+
         </form>
     )
 }

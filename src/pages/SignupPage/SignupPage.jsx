@@ -51,7 +51,7 @@ function SignupPage() {
     <div>
       {/* <h1 className="text-center text-xl p-4 font-bold">Sign Up</h1> */}
 
-      <form onSubmit={handleSignupSubmit} className="flex flex-col justify-center rounded-md rounded-lg shadow-xl border-2 items-center my-2 sm:m-20 sm:py-4 sm:text-base text-[8px]">
+      <form onSubmit={handleSignupSubmit} className="flex flex-col justify-center rounded-lg shadow-xl border-2 items-center my-2 sm:m-20 sm:py-4 sm:text-base text-[8px]">
         
       <div className="flex flex-col w-10/12">
 
@@ -59,7 +59,7 @@ function SignupPage() {
       <div className="flex flex-row items-center">
         <label className="pr-4 w-3/12">Username:</label>
         <input 
-        className="flex justify-start rounded-md rounded-lg shadow-xl border-2 m-2 w-full"
+        className="flex justify-start rounded-lg shadow-xl border-2 m-2 w-full"
         type="text" 
         name="username" 
         value={username} 
@@ -69,7 +69,7 @@ function SignupPage() {
       <div className="flex flex-row items-center">  
         <label className="pr-4 w-3/12">Email:</label>
         <input 
-        className="flex justify-start rounded-md rounded-lg shadow-xl border-2 m-2 w-full"
+        className="flex justify-start rounded-lg shadow-xl border-2 m-2 w-full"
         type="email" 
         name="email" 
         value={email} 
@@ -79,7 +79,7 @@ function SignupPage() {
       <div className="flex flex-row items-center">
         <label className="pr-4 w-3/12">Password:</label>
         <input
-          className="flex justify-start rounded-md rounded-lg shadow-xl border-2 m-2 w-full"
+          className="flex justify-start rounded-lg shadow-xl border-2 m-2 w-full"
           type="password"
           name="password"
           value={password}
@@ -90,7 +90,7 @@ function SignupPage() {
       <div className="flex flex-row items-center">
         <label className="pr-4 w-3/12">Birhtday</label>
         <input
-          className="flex justify-start rounded-md rounded-lg shadow-xl border-2 m-2 w-full"
+          className="flex justify-start rounded-lg shadow-xl border-2 m-2 w-full"
           type="date"
           name="birthday"
           value={birthday}
@@ -104,13 +104,18 @@ function SignupPage() {
                 Sign up
             </span>
         </button>
+
+        <div>
+          {
+          errorMessage && 
+          <p className="flex justify-center rounded-lg my-2 p-4 w-full bg-red-400 text-yellow-300">
+            {errorMessage}
+          </p>
+          }
+          </div>
       </div>
       </form>
 
-      {/* {errorMessage && <p className="error-message">{errorMessage}</p>} */}
-
-      {/* <p className="text-center text-xl p-4 font-bold">Already have account?</p>
-      <Link to={"/login"} className="text-center text-xl p-4 font-bold"> Login</Link> */}
     </div>
   );
 }
