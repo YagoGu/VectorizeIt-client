@@ -42,12 +42,18 @@ function HomePage() {
           
           videogames.map((properties) => {
             return (
-              <Link to={`/game/${properties._id}`} key={properties._id} className="flex flex-col justify-center w-28 h-48 p-2 m-1 rounded-lg border-2 border-black border-solid sm:w-48 sm:h-80">
-                <div>
-                  <p className="text-xs py-1 text-center sm:text-base">{properties.title}</p>
-                  <img className="w-20 h-27 mx-2 my-1 sm:w-40 sm:h-60" src={properties.videogame_picture} alt={`${properties.title} front page`} />
-                </div>
-              </Link>
+              // <Link to={`/game/${properties._id}`} key={properties._id} className="relative inline-block px-4 py-2 font-medium groupflex flex-col justify-center w-28 h-48 p-2 m-1 rounded-lg border-2 border-black border-solid sm:w-48 sm:h-80">
+              //   <div>
+              //     <p className="text-xs py-1 text-center sm:text-base">{properties.title}</p>
+              //     <img className="w-20 h-27 mx-2 my-1 sm:w-40 sm:h-60" src={properties.videogame_picture} alt={`${properties.title} front page`} />
+              //   </div>
+              // </Link>
+              <Link to={`/game/${properties._id}`} key={properties._id} className="relative inline-block px-4 py-2 font-medium groupflex flex-col justify-center w-28 h-48 p-2 m-1 rounded-lg border-2 border-black border-solid sm:w-48 sm:h-80">
+              <div>
+                <p className="text-xs py-1 text-center sm:text-base">{properties.title}</p>
+                <img className="w-20 h-27 mx-2 my-1 sm:w-40 sm:h-60" src={properties.videogame_picture} alt={`${properties.title} front page`} />
+              </div>
+            </Link>
             )
           })
         }
