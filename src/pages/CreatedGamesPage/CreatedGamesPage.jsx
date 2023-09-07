@@ -52,7 +52,10 @@ function CreatedGamesPage() {
         <div className="flex flex-col justify-center">
             {isLoggedIn && (
                 <>
-                    <button onClick={showComponentCreateGame} className="flex justify-center rounded-md border-black border-solid border-2 content-center mt-4">Add a game to the database</button>
+                    <button onClick={showComponentCreateGame} className="sm:px-5 sm:py-2.5 relative rounded group overflow-hidden font-medium bg-violet-50 text-violet-600 inline-block py-0.5 px-0.5 ml-0.5 text-[8px] h-4 w-full sm:h-12 h-auto sm:mt-4 sm:text-base mb-2 text-center">
+                    <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-violet-600 group-hover:h-full opacity-90"></span>
+                    <span className="relative group-hover:text-white">Add a game on the database</span>
+                    </button>
                     {showCreateGame && (<CreateGame idUser={idUser} setShowCreateGame={setShowCreateGame} fetchCreatedGames={fetchCreatedGames}/>)}
                 </>
             )}
@@ -71,7 +74,12 @@ function CreatedGamesPage() {
                         </Link>
                         {isLoggedIn && (
                             <div className="flex flex-col justify-center items-center">
-                            <button onClick={() => showComponentModifyGame(game._id)} className="rounded-md border-black border-solid border-2 content-center my-2 sm:w-48 w-28">Modify</button>
+                            <button onClick={() => showComponentModifyGame(game._id)} className="sm:px-5 sm:py-2.5 relative rounded group overflow-hidden font-medium bg-violet-50 text-violet-600 inline-block py-0.5 px-0.5 ml-0.5 text-[8px] h-4 w-full sm:h-12 h-auto sm:mt-4 sm:text-base mt-2 text-center sm:mb-2">
+                            <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-violet-600 group-hover:h-full opacity-90"></span>
+                            <span className="relative group-hover:text-white">
+                                Modify
+                            </span>
+                            </button>
                             {showModifyGame && gameSelected === game._id &&
                             (<ModifyGame idUser={idUser} idGame={game._id} setShowModifyGame={setShowModifyGame}/>)}
                             <DeleteGame idUser={idUser} idGame={game._id}/>
