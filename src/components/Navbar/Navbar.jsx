@@ -12,38 +12,36 @@ function Navbar() {
   
 
   return (
-    <nav className="flex flex-row flex-nowrap justify-between">
-      <Link to="/" className="border-2 rounded-lg border-solid border-black py-1 px-2">
+    <nav className="flex flex-row flex-nowrap justify-around items-center">
+      <Link to="/" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 text-xs h-12">
         <button>Home</button>
       </Link>
 
       {isLoggedIn && (
         <>
-          <Link to={`/user/${idUser}`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-0.5 ml-2 text-xs">
+          <Link to={`/user/${idUser}`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mr-0.5 ml-1 text-xs h-12">
             <button className="">Your page</button>
           </Link>
 
-          <Link to={`/game/${idUser}/played-games`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs">
+          <Link to={`/game/${idUser}/played-games`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
             <button>Games played</button>
           </Link>
 
-          <Link to={`/user/${idUser}/created-games`} className="border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs">
+          <Link to={`/user/${idUser}/created-games`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
             <button>Games created</button>
           </Link>
 
-          <button onClick={logOutUser} className="border-2 rounded-lg border-solid border-black py-1 px-1 mx-0.5 text-xs">Logout</button>
-
-          <span>{user && user.name}</span>
+          <button onClick={logOutUser} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-1 ml-0.5 text-xs h-12">Logout</button>
         </>
       )}
 
       {!isLoggedIn && (
         <div className="flex flex-row justify-end">
-          <Link to="/signup" className="border-2 rounded-lg border-solid border-black py-1 px-2 mr-4">
+          <Link to="/signup" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
             {" "}
             <button>Sign Up</button>{" "}
           </Link>
-          <Link to="/login" className="border-2 rounded-lg border-solid border-black py-1 px-2">
+          <Link to="/login" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
             {" "}
             <button>Login</button>{" "}
           </Link>
