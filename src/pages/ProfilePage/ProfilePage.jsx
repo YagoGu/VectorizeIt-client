@@ -73,7 +73,7 @@ function ProfilePage() {
                 <span class="rounded-lg absolute inset-0 w-full h-full bg-white border-2 border-purple-600"></span>
                 <span class="relative text-black">
                   <p className="text-xs py-1 text-center sm:text-base">{games.title}</p>
-                  <img className="rounded-lg w-20 h-27 my-1 sm:w-40 sm:h-60" src={games.videogame_picture} alt={`${games.title} front`} />
+                  <img className="rounded-lg w-20 h-32 my-1 sm:w-40 sm:h-60" src={games.videogame_picture} alt={`${games.title} front`} />
                 </span>
               </div> 
             )})

@@ -36,7 +36,7 @@ function PlayedGames () {
                             <span class="rounded-lg absolute inset-0 w-full h-full bg-white border-2 border-purple-600 group-hover:bg-purple-600"></span>
                             <span class="relative text-black group-hover:text-white">
                                 <p className="text-xs py-1 text-center sm:text-base">{game.title}</p>
-                                <img className="rounded-lg w-20 h-27 my-1 sm:w-40 sm:h-60" src={game.videogame_picture} alt={`${game.title} front`} />
+                                <img className="rounded-lg w-20 h-32 my-1 sm:w-40 sm:h-60" src={game.videogame_picture} alt={`${game.title} front`} />
                             </span>
                         </div>
                     </Link>

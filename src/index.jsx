@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
     <AuthProviderWrapper>
-      <App />
+      <App className="bg-violet-100 h-full"/>
     </AuthProviderWrapper>
   </Router>
 );
