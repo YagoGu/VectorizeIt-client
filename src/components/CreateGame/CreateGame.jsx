@@ -67,14 +67,14 @@ function CreateGame(props) {
             name="title"
             value={form.title}
             placeholder="Title is mandatory"
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2  w-11/12"
             />
             </div>
 
             <div className="flex flex-row items-center">
             <label>Corporation</label>
             <input 
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2  w-11/12"
             type="text"
             name="corporation"
             value={form.corporation}
@@ -85,7 +85,7 @@ function CreateGame(props) {
             <div className="flex flex-row items-center">
             <label>Description</label>
             <input 
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2  w-11/12"
             type="textarea"
             name="description"
             value={form.description}
@@ -95,7 +95,7 @@ function CreateGame(props) {
 
             <div className="flex flex-row items-center">
             <label>PEGI</label>
-            <select name="pegi" value={form.pegi} className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36">
+            <select name="pegi" value={form.pegi} className="flex justify-start rounded-md border-black border-solid border-2 m-2  w-11/12">
                 <option value="pegi3">PEGI 3</option>
                 <option value="pegi7">PEGI 7</option>
                 <option value="pegi12">PEGI 12</option>

@@ -24,14 +24,14 @@ function PlayedGames () {
     }, [])
 
     return (
-        <div className="flex flex-wrap flex-row items-center justify-center mt-4">
+        <div className="flex flex-wrap flex-row items-center justify-center mt-4 sm:mt-20">
         {   
             playedGames?.map((game) => {
                 return(
-                    <Link to={`/game/${game._id}`} key={game._id} className="flex flex-col w-28 h-48 p-2 m-1 rounded-lg border-2 border-black border-solid">
+                    <Link to={`/game/${game._id}`} key={game._id} className="flex flex-col justify-center w-28 h-48 p-2 m-1 rounded-lg border-2 border-black border-solid sm:w-48 sm:h-80">
                         <div>
-                            <p className="text-xs py-1 text-center">{game.title}</p>
-                            <img className="w-20 h-27 mx-2 my-1" src={game.videogame_picture} alt={`${game.title} front`} />
+                            <p className="text-xs py-1 text-center sm:text-base">{game.title}</p>
+                            <img className="w-20 h-27 mx-2 my-1 sm:w-40 sm:h-60" src={game.videogame_picture} alt={`${game.title} front`} />
                         </div>
                     </Link>
                 )

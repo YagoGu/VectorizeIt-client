@@ -74,7 +74,7 @@ function ModifyGame(props) {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} enctype="multipart/form-data" className="flex flex-col justify-center rounded-md border-black border-solid border-2 content-center my-2">
+        <form onSubmit={(e) => handleSubmit(e)} onChange={(e) => handleInputChange(e)} enctype="multipart/form-data" className="flex flex-col justify-center rounded-md border-black border-solid border-2 content-center my-2 w-8/12 sm:w-11/12 p-4">
 
             <div className="flex flex-row items-center">
             <label>Title</label>
@@ -82,7 +82,7 @@ function ModifyGame(props) {
             type="text"
             name="title"
             value={form.title}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-10/12"
             />
             </div>
 
@@ -92,7 +92,7 @@ function ModifyGame(props) {
             type="text"
             name="corporation"
             value={form.corporation}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2  w-10/12"
             />
             </div>
 
@@ -102,13 +102,13 @@ function ModifyGame(props) {
             type="textarea"
             name="description"
             value={form.description}
-            className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"
+            className="flex justify-start rounded-md border-black border-solid border-2 m-2  w-10/12"
             />
             </div>
 
             <div className="flex flex-row items-center">
             <label>PEGI</label>
-            <select name="pegi" value={form.pegi} className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36">
+            <select name="pegi" value={form.pegi} className="flex justify-start rounded-md border-black border-solid border-2 m-2  w-10/12">
                 <option value="pegi3">PEGI 3</option>
                 <option value="pegi7">PEGI 7</option>
                 <option value="pegi12">PEGI 12</option>
@@ -124,7 +124,7 @@ function ModifyGame(props) {
             />
 
             {detectImg &&
-            (<img src={form.videogame_picture} alt="your image" className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-36"/>)}
+            (<img src={form.videogame_picture} alt="your image" className="flex justify-start rounded-md border-black border-solid border-2 m-2"/>)}
 
             <button type="submit" className="flex justify-center rounded-md border-black border-solid border-2 content-center m-2">Update your game</button>
 

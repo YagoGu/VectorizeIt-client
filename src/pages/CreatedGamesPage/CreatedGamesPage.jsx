@@ -56,18 +56,18 @@ function CreatedGamesPage() {
                     {showCreateGame && (<CreateGame idUser={idUser} setShowCreateGame={setShowCreateGame} fetchCreatedGames={fetchCreatedGames}/>)}
                 </>
             )}
-            <div className="flex flex-wrap flex-row items-center justify-center mt-4">
+            <div className="flex flex-wrap flex-row content-centeritems-center justify-center mt-4 ">
             {
             created?.map((game) => {
                 return (
-                    <div key={game._id}>
-                        <Link to={`/game/${game._id}`} className="flex flex-col w-28 h-48 p-2 m-1 rounded-lg border-2 border-black border-solid">
-                        <p className="text-xs py-1 text-center">{game.title}</p>
-                        <img className="w-20 h-27 mx-2 my-1" src={game.videogame_picture} alt={`${game.title} picture`} />
+                    <div key={game._id} className="flex flex-col items-center content-around">
+                        <Link to={`/game/${game._id}`} className="flex flex-col justify-center content-center w-28 h-48 p-2 m-1 rounded-lg border-2 border-black border-solid sm:w-48 sm:h-80">
+                        <p className="text-xs py-1 text-center sm:text-base">{game.title}</p>
+                        <img className="w-20 h-27 mx-2 my-1 sm:w-40 sm:h-60" src={game.videogame_picture} alt={`${game.title} picture`} />
                         </Link>
                         {isLoggedIn && (
-                            <div className="flex flex-col justify-center">
-                            <button onClick={() => showComponentModifyGame(game._id)} className="rounded-md border-black border-solid border-2 content-center my-2">Modify</button>
+                            <div className="flex flex-col justify-center items-center">
+                            <button onClick={() => showComponentModifyGame(game._id)} className="rounded-md border-black border-solid border-2 content-center my-2 sm:w-48 w-28">Modify</button>
                             {showModifyGame && gameSelected === game._id &&
                             (<ModifyGame idUser={idUser} idGame={game._id} setShowModifyGame={setShowModifyGame}/>)}
                             <DeleteGame idUser={idUser} idGame={game._id}/>

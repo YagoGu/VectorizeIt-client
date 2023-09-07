@@ -13,35 +13,35 @@ function Navbar() {
 
   return (
     <nav className="flex flex-row flex-nowrap justify-around items-center">
-      <Link to="/" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 text-xs h-12">
+      <Link to="/" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 text-xs h-12 sm:text-base">
         <button>Home</button>
       </Link>
 
       {isLoggedIn && (
         <>
-          <Link to={`/user/${idUser}`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mr-0.5 ml-1 text-xs h-12">
+          <Link to={`/user/${idUser}`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mr-0.5 ml-1 text-xs h-12 sm:text-base">
             <button className="">Your page</button>
           </Link>
 
-          <Link to={`/game/${idUser}/played-games`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
+          <Link to={`/game/${idUser}/played-games`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12 sm:text-base">
             <button>Games played</button>
           </Link>
 
-          <Link to={`/user/${idUser}/created-games`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
+          <Link to={`/user/${idUser}/created-games`} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12 sm:text-base">
             <button>Games created</button>
           </Link>
 
-          <button onClick={logOutUser} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-1 ml-0.5 text-xs h-12">Logout</button>
+          <button onClick={logOutUser} className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-1 ml-0.5 text-xs h-12 sm:text-base">Logout</button>
         </>
       )}
 
       {!isLoggedIn && (
         <div className="flex flex-row justify-end">
-          <Link to="/signup" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
+          <Link to="/signup" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12 sm:text-base">
             {" "}
             <button>Sign Up</button>{" "}
           </Link>
-          <Link to="/login" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12">
+          <Link to="/login" className="flex flex-col justify-center border-2 rounded-lg border-solid border-black py-1 px-2 mx-0.5 text-xs h-12 sm:text-base">
             {" "}
             <button>Login</button>{" "}
           </Link>

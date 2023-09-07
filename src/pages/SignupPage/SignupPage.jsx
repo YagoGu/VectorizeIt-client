@@ -48,35 +48,35 @@ function SignupPage() {
   };
 
   return (
-    <div className="rounded-md border-black border-solid border-2 my-4 p-4 flex flex-col items-center">
+    <div className="flex flex-col justify-center rounded-md border-black border-solid border-2 content-center my-2">
       <h1 className="text-center text-xl p-4 font-bold">Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
         
-      <div className="flex flex-row items-center text-sm m-4">
+      <div className="flex flex-row items-center text-sm m-4 sm:text-base">
         <label>Username:</label>
         <input 
-        className="rounded-md border-black border-solid border-2 m-2"
+        className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-10/12"
         type="text" 
         name="username" 
         value={username} 
         onChange={handleUsername} />
       </div>
 
-      <div className="flex flex-row items-center text-sm m-4">  
+      <div className="flex flex-row items-center text-sm m-4 sm:text-base">  
         <label>Email:</label>
         <input 
-        className="rounded-md border-black border-solid border-2 m-2"
+        className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-10/12"
         type="email" 
         name="email" 
         value={email} 
         onChange={handleEmail} />
       </div>
 
-      <div className="flex flex-row items-center text-sm m-4">
+      <div className="flex flex-row items-center text-sm m-4 sm:text-base">
         <label>Password:</label>
         <input
-          className="rounded-md border-black border-solid border-2 m-2"
+          className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-10/12"
           type="password"
           name="password"
           value={password}
@@ -84,10 +84,10 @@ function SignupPage() {
         />
       </div>
 
-      <div className="flex flex-row items-center text-sm m-4">
+      <div className="flex flex-row items-center text-sm m-4 sm:text-base">
         <label>Birhtday</label>
         <input
-          className="rounded-md border-black border-solid border-2 m-2"
+          className="flex justify-start rounded-md border-black border-solid border-2 m-2 w-10/12"
           type="date"
           name="birthday"
           value={birthday}
@@ -95,13 +95,13 @@ function SignupPage() {
         />
       </div>
 
-        <button type="submit" className="justify-center rounded-md border-black border-solid border-2 m-4 w-60">Sign Up</button>
+        <button type="submit" className="flex justify-center rounded-md border-black border-solid border-2 content-center mx-8 ms:mx-12 w-10/12">Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <p className="text-center text-xl p-4 font-bold">Already have account?</p>
+      <Link to={"/login"} className="text-center text-xl p-4 font-bold"> Login</Link>
     </div>
   );
 }
